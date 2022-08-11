@@ -87,9 +87,6 @@
                                                            alt=""> </span>
             </li>
             <li class="nav-item x">
-              <a class="nav-link active x" >Employee</a>
-            </li>
-            <li class="nav-item x">
               <a class="nav-link active x" >Customer</a>
             </li>
             <li class="nav-item x">
@@ -149,7 +146,6 @@
             <th>Ngày bắt đầu</th>
             <th>Ngày kết thúc</th>
             <th>Tiền Cọc</th>
-            <th>Tên Nhân viên</th>
             <th>Tên khách</th>
             <th>Tên dịch vụ</th>
             <th> Tổng Tiền</th>
@@ -162,7 +158,6 @@
             <td th:text="${c.getDayEnd()}">1</td>
             <td th:text="${c.getDayStart()}">1</td>
             <td th:text="${c.getDeposit()}">1</td>
-            <td th:text="${c.getEmployee() == null ? '' : c.getEmployee().getName()}">1</td>
             <td th:text="${c.getCustomer() == null ? '' : c.getCustomer().getName()}">1</td>
             <td th:text="${c.getFacility() == null ? '' : c.getFacility().getName()}">1</td>
             <td>1</td>
