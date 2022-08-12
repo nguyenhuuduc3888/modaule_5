@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" \
+          rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <style>
+        .x {
+            transition-duration: .5s;
+            transition-property: transform;
+            transition-timing-function: ease-out;
+        }
+
+        .x:hover {
+            transform: translateY(-10px);
+        }
+
+        a{
+            color: white!important;
+            font-weight: bold;
+        }
+
+        ul li {
+            font-family: Papyrus;
+            font-size: 30px;
+        }
+
+        .footer {
+            clear: both;
+        }
+
+        .menu {
+            background-image: url("https://thuthuatnhanh.com/wp-content/uploads/2021/07/Background-bien-Beach-trong-xanh.jpg");
+            color: white !important;
+            border-radius: 15px;
+        }
+
+        * {
+            box-sizing: border-box !important;
+        }
+
+        .left-center {
+            height: 100%;
+        }
+
+        .right-center {
+            height: 100%;
+            border-radius: 20px;
+        }
+
+        ul li:hover {
+            background-color: cornflowerblue;
+            color: white;
+            border-radius: 10px;
+        }
+
+        body {
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRER-SUORn-A19RXc5_i9trJrr2Iys-pKNQDQ&usqp=CAU");
+            background-size: cover;
+        }
+
+        img {
+            width: border-box;
+            height: border-box;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="col-12 menu">
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <div class="container-fluid ">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
+                        <li class="nav-item " >
+                                  <span class="left"> <img WIDTH="60 60" src="https://furamavietnam.com/wp-content/uploads/2018/10/logo.png"
+                                                           alt=""> </span>
+                        </li>
+                        <li class="nav-item x">
+                            <a class="nav-link active x" th:href="@{/customer}">Customer</a>
+                        </li>
+                        <li class="nav-item x">
+                            <a class="nav-link active x" th:href="@{/facility}">Facility</a>
+                        </li>
+                        <li class="nav-item x">
+                            <a class="nav-link active x" th:href="@{/contract}">Contract</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item x">
+                    <!--                        <a sec:authorize="!isAuthenticated()" class="nav-link active" th:href="@{/login}"> Login </a>-->
+                    <!--                        <a sec:authorize="isAuthenticated()" class="nav-link active" th:href="@{/logout}"> LogOut </a>-->
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+
+
+    <div class="col-12 center" >
+        <div class="row" >
+
+            <div class="col-3 left-center" style="border-radius: 10px" >
+                <div style="top: 20px">
+                    <img style="border-radius: 10px" width="100%" height="200"
+                         src="https://www.vnbooking.com/upload/article/furama_resort_danang4(1).jpg" alt="">
+                </div>
+                <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+
+                <div style="top: 20px">
+                    <img style="border-radius: 10px" width="100%" height="200"
+                         src="https://du-lich.chudu24.com/f/m/1603/18/furama-resort-da-nang-1.jpg?w=800&h=500"
+                         alt="">
+                </div>
+                <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+
+                <div style="top: 20px">
+                    <img style="border-radius: 10px" width="100%" height="200"
+                         src="https://fantasea.vn/wp-content/uploads/2017/10/Furama-%C4%90%C3%A0-N%E1%BA%B5ng-Resort.jpg"
+                         alt="">
+                </div>
+            </div>
+
+            <!--card right-->
+
+            <div class="col-9 right-center" style="border-radius: 10px">
+
+                <div id="form" class="text-black">
+                    <form method="POST">
+                        <input class="form-control form-control-lg" type="hidden" placeholder=".form-control-lg" aria-label=".form-control-lg example">
+                        <div>
+                            <label>Ngày bắt đầu</label>
+                            <input class="form-control form-control-lg" type="text" placeholder="Ngày bắt đầu" aria-label=".form-control-lg example">
+                        </div>
+                        <div>
+                            <label>Ngày kết thúc</label>
+                            <input class="form-control form-control-lg" type="text" placeholder="Ngày kết thúc" aria-label=".form-control-lg example">
+                        </div>
+                        <div>
+                            <label>Tiền Cọc</label>
+                            <input class="form-control form-control-lg" type="text" placeholder="Tiền Cọc" aria-label=".form-control-lg example">
+                        </div>
+                        <div>
+                            <label>Tên khách</label>
+                            <select class="form-control form-control-lg" type="text" placeholder=".form-control-lg" aria-label=".form-control-lg example">
+                                <option >Chọn Tên khách</option>
+                                <option >1</option>
+                                <option >2</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Tên dịch vụ</label>
+                            <select class="form-control form-control-lg" type="text" placeholder=".form-control-lg" aria-label=".form-control-lg example">
+                                <option >ChọnTên dịch vụ</option>
+                                <option >1</option>
+                                <option >2</option>
+                            </select>
+                        </div>
+
+
+                        <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+
+                        <input type="submit" value="Save"/>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-12 footer" style="font-family: Papyrus">
+        &copy;FURAMA-Đà nẵng..company
+    </div>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

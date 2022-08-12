@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--  link css-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <style>
+        .x {
+            transition-duration: .5s;
+            transition-property: transform;
+            transition-timing-function: ease-out;
+        }
+
+        .x:hover {
+            transform: translateY(-10px);
+        }
+
+        a {
+            color: red !important;
+        }
+
+        ul li {
+            font-family: Papyrus;
+            font-size: 30px;
+        }
+
+        .footer {
+            clear: both;
+        }
+
+        .menu {
+            background-image: url("https://thuthuatnhanh.com/wp-content/uploads/2021/07/Background-bien-Beach-trong-xanh.jpg");
+            color: white !important;
+            border-radius: 15px;}
+
+        * {
+            box-sizing: border-box !important;
+        }
+
+        .left-center {
+            height: 100%;
+        }
+
+        .right-center {
+            height: 100%;
+            border-radius: 20px;
+        }
+
+        ul li:hover {
+            color: white;
+            border-radius: 10px;
+        }
+
+        img {
+            width: border-box;
+            height: border-box;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="col-12 menu">
+        <nav class="navbar navbar-expand-lg  ">
+            <div class="container-fluid ">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item ">
+                                  <span class="left"><a style="text-decoration: none" th:href="@{/}">
+            <img width=" 40 40" src="https://furamavietnam.com/wp-content/uploads/2018/10/logo.png"></a>
+                                  </span>
+                        </li>
+                        <li class="nav-item x">
+                            <a class="nav-link x" th:href="@{/customer}">Customer</a>
+                        </li>
+                        <li class="nav-item x">
+                            <a class="nav-link  x" th:href="@{/facility}">Facility</a>
+                        </li>
+                        <li class="nav-item x">
+                            <a class="nav-link  x" th:href="@{/contract}">Contract</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--  Ô search-->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item ">
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Nhập Tên " aria-label="Tìm Kiếm">
+                        <button class="btn btn-outline-danger" type="submit">Search</button>
+                    </form>
+                </li>
+            </ul>
+
+        </nav>
+    </div>
+
+    <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+
+    <div class="col-12 center">
+        <div class="row">
+            <div class="col-3 left-center" style="border-radius: 10px">
+                <div>
+                    <img style="border-radius: 10px" width="100%" height="200"
+                         src="https://www.vnbooking.com/upload/article/furama_resort_danang4(1).jpg" alt="">
+                </div>
+
+                <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+
+                <div>
+                    <img style="border-radius: 10px" width="100%" height="200"
+                         src="https://du-lich.chudu24.com/f/m/1603/18/furama-resort-da-nang-1.jpg?w=800&h=500"
+                         alt="">
+
+                </div>
+                <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+
+                <div>
+                    <img style="border-radius: 10px" width="100%" height="200"
+                         src="https://fantasea.vn/wp-content/uploads/2017/10/Furama-%C4%90%C3%A0-N%E1%BA%B5ng-Resort.jpg"
+                         alt="">
+                </div>
+            </div>
+
+            <!--Table-->
+            <div class="col-9 right-center" style="border-radius: 10px">
+
+                <table class="table table-hover table-bordered" style="font-size: 13px;font-family: Papyrus;">
+                    <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Name</th>
+                        <th>Day Of Birth</th>
+                        <th>Gender</th>
+                        <th>Id Card</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Customer Type</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>
+                            <!--nút edit-->
+                            <button type="button" class="btn btn-outline-danger">
+                                <a style="color: red;text-decoration: none" href="@{/customer/update(id=${c.id})}">Edit</a>
+                            </button>
+                        </td>
+                       <td>
+
+                           <!-- Button trigger modal -->
+                           <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                              Delete
+                           </button>
+
+                           <!-- Modal -->
+                           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                               <div class="modal-dialog">
+                                   <div class="modal-content">
+                                       <div class="modal-header">
+                                           <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                       </div>
+                                       <div class="modal-body">
+                                           ...
+                                       </div>
+                                       <div class="modal-footer">
+                                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                           <button type="button" class="btn btn-primary">Save changes</button>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+
+                       </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!--Nút thêm-->
+                <button style="border-radius: 10px;background-color: white">
+                    <a style="text-decoration: none" th:href="@{/customer/create}">
+                        <img width="40 40" src="https://cdn-icons-png.flaticon.com/512/1387/1387940.png"></a>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 footer" style="font-family: Papyrus">
+        &copy;FURAMA-Đà nẵng..company
+    </div>
+</div>
+</div>
+
+<!--link script-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
