@@ -1,0 +1,16 @@
+<h1>Calculator!</h1>
+<label>
+  Số thứ nhất:
+  <input type="number" [(ngModel)]="firstNumber">
+</label>
+<label>
+  Số thứ 2:
+  <input type="number" [(ngModel)]="secondNumber">
+</label>
+<button type="button" (click)="calculator('+')">+</button>
+<button type="button" (click)="calculator('-')">-</button>
+<button type="button" (click)="calculator('*')">*</button>
+<button type="button" (click)="calculator('/')">/</button>
+<h2> Kết Quả : {{result}}</h2>
+<h2>Thực Hiện :{{error}}</h2>
+
