@@ -1,0 +1,48 @@
+<h2>List Article</h2>
+<hr>
+<table class="table">
+  <thead>
+  <tr>
+    <th> Title</th>
+    <th> Url</th>
+    <th>Like</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let art of articles">
+    <td>
+      {{art.title}}
+    </td>
+    <td>
+      <a href="{{art.url}}" target="_blank">Click</a>
+    </td>
+    <td>
+      <app-like></app-like>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<hr>
+
+<table class="table">
+  <thead>
+  <th> Input Title</th>
+  <th>Input Url</th>
+  <th>Add</th>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      <textarea [(ngModel)]="article.title" cols="30"> </textarea>
+    </td>
+    <td>
+      <textarea [(ngModel)]="article.url" cols="30"> </textarea>
+    </td>
+    <td>
+      <button style="float: right" (click)="addNewArticle()">Add</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
