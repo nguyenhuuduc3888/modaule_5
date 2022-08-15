@@ -13,19 +13,19 @@ export class CalculatorComponent implements OnInit {
 
   calculator(operator) {
     if (operator === '+') {
-      this.result = Number(this.firstNumber) + Number(this.secondNumber);
+      this.result = this.firstNumber + this.secondNumber;
       this.error = ' Ok';
     } else if (operator === '-') {
-      this.result = Number(this.firstNumber) - Number(this.secondNumber);
+      this.result = this.firstNumber - this.secondNumber;
       this.error = ' Ok';
     } else if (operator === '*') {
-      this.result = Number(this.firstNumber) * Number(this.secondNumber);
+      this.result = this.firstNumber * this.secondNumber;
       this.error = ' Ok';
     } else {
       if (this.secondNumber === 0) {
         this.error = ' Không thành công,Không thể chia cho không';
       } else {
-        this.result = Number(this.firstNumber) / Number(this.secondNumber);
+        this.result = this.firstNumber / this.secondNumber;
         this.error = ' Ok';
       }
     }
