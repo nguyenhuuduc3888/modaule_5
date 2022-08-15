@@ -1,0 +1,59 @@
+label{
+  color:  #21D192;
+  font-size:20px;}
+.x {
+  transition-duration: .5s;
+  transition-property: transform;
+  transition-timing-function: ease-out;
+}
+
+.x:hover {
+  transform: translateY(-10px);
+}
+
+a {
+  color: white !important;
+  font-weight: bold;
+}
+
+ul li {
+  font-family: Papyrus;
+  font-size: 30px;
+}
+
+.footer {
+  clear: both;
+}
+
+.menu {
+  background-color: #21D192;
+  color: black !important;
+  border-radius: 15px;
+}
+
+* {
+  box-sizing: border-box !important;
+}
+
+.left-center {
+  height: 100%;
+}
+
+.right-center {
+  height: 100%;
+  border-radius: 20px;
+}
+
+ul li:hover {
+  color: white;
+  border-radius: 10px;
+}
+
+
+
+img {
+  width: border-box;
+  height: border-box;
+}
+
+
