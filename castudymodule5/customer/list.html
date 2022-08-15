@@ -19,23 +19,21 @@
             transform: translateY(-10px);
         }
 
-        a {
-            color: red !important;
-        }
 
         ul li {
             font-family: Papyrus;
             font-size: 30px;
         }
 
-        .footer {
-            clear: both;
-        }
+a{
+    color: #000 !important;
+}
 
         .menu {
-            background-image: url("https://thuthuatnhanh.com/wp-content/uploads/2021/07/Background-bien-Beach-trong-xanh.jpg");
+            background-color: #21D192;
             color: white !important;
-            border-radius: 15px;}
+            border-radius: 15px;
+        }
 
         * {
             box-sizing: border-box !important;
@@ -102,11 +100,23 @@
                     </form>
                 </li>
             </ul>
-
         </nav>
     </div>
 
     <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+<h1>List Customer</h1>
+    <div class="row" >
+        <div class="col-11">
+            <button class="x" style="border-radius: 10px;background-color: white">
+                <a style="text-decoration: none" >
+                    <img width="40 40" src="https://cdn-icons-png.flaticon.com/512/1387/1387940.png"></a>
+            </button>
+        </div>
+        <div class="col-1">
+
+        </div>
+    </div>
+
 
     <div class="col-12 center">
         <div class="row">
@@ -155,24 +165,23 @@
                     <tbody>
                     <tr>
                         <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
-                        <td>7</td>
-                        <td>8</td>
-                        <td>9</td>
+                        <td>Nguyen huu duc</td>
+                        <td>13/09/1997</td>
+                        <td>Nam</td>
+                        <td>184309497</td>
+                        <td>0899607659</td>
+                        <td>nguyenhuuduc3888@gmail.com</td>
+                        <td>HA TINH</td>
+                        <td>Diamond</td>
                         <td>
                             <!--nút edit-->
-                            <button type="button" class="btn btn-outline-danger">
-                                <a style="color: red;text-decoration: none" href="@{/customer/update(id=${c.id})}">Edit</a>
+                            <button type="button" class="btn btn-outline-success" >
+                                <a style="text-decoration: none;color: forestgreen" href="@{/customer/update(id=${c.id})}">Edit</a>
                             </button>
                         </td>
                        <td>
-
                            <!-- Button trigger modal -->
-                           <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                           <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
                               Delete
                            </button>
 
@@ -185,7 +194,7 @@
                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                        </div>
                                        <div class="modal-body">
-                                           ...
+                                           ban co muon xoa nguyen huu duc
                                        </div>
                                        <div class="modal-footer">
                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -199,16 +208,114 @@
                     </tr>
                     </tbody>
                 </table>
-                <!--Nút thêm-->
-                <button style="border-radius: 10px;background-color: white">
-                    <a style="text-decoration: none" th:href="@{/customer/create}">
-                        <img width="40 40" src="https://cdn-icons-png.flaticon.com/512/1387/1387940.png"></a>
-                </button>
             </div>
         </div>
     </div>
-    <div class="col-12 footer" style="font-family: Papyrus">
-        &copy;FURAMA-Đà nẵng..company
+    <!-- Footer -->
+    <div class="container my-5">
+        <footer
+                class="text-center text-lg-start text-dark"
+                style="background-color: #ECEFF1"
+        >
+            <section
+                    class="d-flex justify-content-between p-4 text-white"
+                    style="background-color: #21D192"
+            >
+                <div class="me-5">
+                    <span>Get connected with us on social networks:</span>
+                </div>
+                <div>
+                    <a href="" class="text-white me-4">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="" class="text-white me-4">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="" class="text-white me-4">
+                        <i class="fab fa-google"></i>
+                    </a>
+                    <a href="" class="text-white me-4">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="" class="text-white me-4">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="" class="text-white me-4">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </section>
+            <section class="">
+                <div class="container text-center text-md-start mt-5">
+                    <div class="row mt-3">
+                        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                            <h6 class="text-uppercase fw-bold">Company name</h6>
+                            <hr
+                                    class="mb-4 mt-0 d-inline-block mx-auto"
+                                    style="width: 60px; background-color: #7c4dff; height: 2px"
+                            />
+                            <p>
+                                Here you can use rows and columns to organize your footer
+                                content.
+                            </p>
+                        </div>
+
+                        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                            <h6 class="text-uppercase fw-bold">Products</h6>
+                            <hr
+                                    class="mb-4 mt-0 d-inline-block mx-auto"
+                                    style="width: 60px; background-color: #7c4dff; height: 2px"
+                            />
+                            <p>
+                                <a href="#!" class="text-dark">Facility</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-dark">Contract</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-dark">Customer</a>
+                            </p>
+                        </div>
+
+                        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                            <!-- Links -->
+                            <h6 class="text-uppercase fw-bold">Useful links</h6>
+                            <hr
+                                    class="mb-4 mt-0 d-inline-block mx-auto"
+                                    style="width: 60px; background-color: #7c4dff; height: 2px"
+                            />
+                            <p>
+                                <a href="#!" class="text-dark">Face Book</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-dark">Gmail</a>
+                            </p>
+                        </div>
+                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                            <h6 class="text-uppercase fw-bold">Contact</h6>
+                            <hr
+                                    class="mb-4 mt-0 d-inline-block mx-auto"
+                                    style="width: 60px; background-color: #7c4dff; height: 2px"
+                            />
+                            <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+                            <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <div
+                    class="text-center p-3"
+                    style="background-color: rgba(0, 0, 0, 0.2)"
+            >
+                © 2020 Copyright:
+                <a class="text-dark" href="https://mdbootstrap.com/"
+                >Furama Da Nang </a
+                >
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
     </div>
 </div>
 </div>

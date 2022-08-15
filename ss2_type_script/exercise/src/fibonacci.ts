@@ -1,5 +1,5 @@
 
-let arrSample = [1, 1];
+let arrSample = [1,1];
 
 function getFibonacci(temp: number) {
     let count: number = arrSample.length;
@@ -17,5 +17,5 @@ let arr = getFibonacci(amount);
 for (let number of arr) {
     sum += number;
 }
-document.write(arr.toString());
-document.write("Tổng của " + amount + " số đầu tiền trong dãy fibonacci là: " + sum);
+console.log(arr.toString());
+console.log("Tổng của " + amount + " số đầu tiền trong dãy fibonacci là: " + sum);
