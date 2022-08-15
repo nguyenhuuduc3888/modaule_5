@@ -1,19 +1,18 @@
-
-var arrSample = [1, 1];
 function getFibonacci(temp) {
-    var count = arrSample.length;
-    for (var i = 1; count < temp; i++) {
-        arrSample.push(arrSample[i] + arrSample[i - 1]);
-        count++;
+    if (temp == 0) {
+        return 0;
     }
-    return arrSample;
+    else if (temp == 1 || temp == 2) {
+        return 1;
+    }
+    else {
+        return getFibonacci(temp - 1) + getFibonacci(temp - 2);
+    }
 }
 var sum = 0;
 var amount = 10;
-var arr = getFibonacci(amount);
-for (var _i = 0, arr_1 = arr; _i < arr_1.length; _i++) {
-    var number = arr_1[_i];
-    sum += number;
+for (var i = 0; i < amount; i++) {
+    sum += getFibonacci(i);
 }
-console.log(arr.toString());
+
 console.log("Tổng của " + amount + " số đầu tiền trong dãy fibonacci là: " + sum);

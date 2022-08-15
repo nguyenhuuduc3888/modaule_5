@@ -1,21 +1,17 @@
-
-let arrSample = [1,1];
-
-function getFibonacci(temp: number) {
-    let count: number = arrSample.length;
-    for (let i = 1; count < temp; i++) {
-        arrSample.push(arrSample[i] + arrSample[i - 1]);
-        count++;
+function getFibonacci(temp: number): number {
+    if (temp == 0) {
+        return 0;
+    } else if (temp == 1 || temp == 2) {
+        return 1;
+    } else {
+        return getFibonacci(temp - 1) + getFibonacci(temp - 2);
     }
-    return arrSample;
 }
 
 let sum: number = 0;
 let amount = 10;
 
-let arr = getFibonacci(amount);
-for (let number of arr) {
-    sum += number;
+for (let i = 0; i < amount; i++) {
+    sum += getFibonacci(i)
 }
-console.log(arr.toString());
 console.log("Tổng của " + amount + " số đầu tiền trong dãy fibonacci là: " + sum);
