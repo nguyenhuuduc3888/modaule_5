@@ -1,0 +1,100 @@
+<div class="container " >
+  <div class="row">
+      <div class="col-12 form-control center" style="border-radius: 10px">
+        <div id="form" class="text-black">
+          <form [formGroup]="registersForm" (ngSubmit)="submit()" novalidate>
+            <div>
+              <label><h1 style="color:  #21D192">Thêm mới register</h1></label>
+            </div>
+            <div>
+              <img width="30 30" src="https://cdn-icons-png.flaticon.com/512/3233/3233515.png" alt="">
+              <input class="form-check-input" type="radio" value="0" name="gender" formControlName="gender">Nữ
+              <img width="30 30" src="https://cdn-icons-png.flaticon.com/512/3233/3233508.png" alt="">
+              <input class="form-check-input" type="radio" value="1" name="gender" formControlName="gender">Nam
+            </div>
+            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+
+            <div>
+              <input class="form-control form-control-lg" type="text" placeholder="Nhập mail"
+                     aria-label=".form-control-lg example" formControlName="email">
+            </div>
+            <div style="color: red"
+                 *ngIf="!registersForm.controls.email?.valid&&(registersForm.controls.email?.dirty||registersForm.controls.email?.touched)">
+              Dung dinh dang mail,khong duoc de trong
+            </div>
+            <div>
+              <input class="form-control form-control-lg" type="number" placeholder="Nhập tuoi"
+                     aria-label=".form-control-lg example" formControlName="age">
+            </div>
+            <div style="color: red"
+                 *ngIf="registersForm.controls.age?.valid&&(registersForm.controls.age?.dirty||registersForm.controls.age?.touched)">
+              Tuoi phai lon hon 18
+            </div>
+            <div>
+              <input class="form-control form-control-lg" type="text" placeholder="Số Điện Thoại"
+                     aria-label=".form-control-lg example" formControlName="phone">
+            </div>
+            <div style="color:red"
+                 *ngIf="!registersForm.controls.phone?.valid&&(registersForm.controls.phone?.dirty||registersForm.controls.phone?.touched)">
+              Bắt đầu với +84, và theo sau là 9 đến 10 chữ số
+            </div>
+            <div>
+              <input class="form-control form-control-lg" type="text" placeholder="pass"
+                     aria-label=".form-control-lg example" formControlName="pass">
+            </div>
+            <div style="color: red"
+                 *ngIf="registersForm.controls.pass?.valid&&(registersForm.controls.pass?.dirty||registersForm.controls.pass.touched)">
+              Khong duoc de trong
+            </div>
+            <div>
+              <input class="form-control form-control-lg" type="text" placeholder="Confirm Pass"
+                     aria-label=".form-control-lg example" formControlName="confirmPass">
+            </div>
+            <div style="color: red"
+                 *ngIf="registersForm.controls.confirmPass?.valid&&(registersForm.controls.confirmPass?.dirty||registersForm.controls.confirmPass.touched)">
+              Khong duoc de trong
+            </div>
+            <div>
+              <select class="form-control form-control-lg" type="text"
+                      aria-label=".form-control-lg example" formControlName="country">
+                <option [ngValue]="null" disabled >  Chọn Thành Phố </option>
+                <option *ngFor="let item of countryList" [ngValue]="item">{{item.name}}</option>
+              </select>
+            </div>
+            <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+            <button type="submit" class=" btn btn-success" >Lưu</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<br>
+
+<div class="container-fluid" >
+  <div class="row">
+    <div class="col-12-center">
+      <table class="table text-center table-hover">
+        <tr>
+          <th>Mail</th>
+          <th>Pass</th>
+          <th>Confirm Pass</th>
+          <th>Phone</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Country</th>
+        </tr>
+        <tr *ngFor="let item of registerList">
+          <td>{{item.email}}</td>
+          <td>{{item.pass}}</td>
+          <td>{{item.confirmPass}}</td>
+          <td>{{item.phone}}</td>
+          <td>{{item.age}}</td>
+          <td *ngIf="item.gender==1 ">Nam</td>
+          <td *ngIf="item.gender==0 ">Nữ</td>
+          <td>{{item.country.name}}</td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
