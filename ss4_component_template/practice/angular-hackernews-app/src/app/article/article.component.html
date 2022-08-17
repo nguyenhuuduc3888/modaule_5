@@ -3,18 +3,18 @@
 <table class="table">
   <thead>
   <tr>
-    <th> Title</th>
-    <th> Url</th>
+    <th>Title</th>
+    <th>Url</th>
     <th>Like</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let art of articles">
+  <tr *ngFor="let arr of articles">
     <td>
-      {{art.title}}
+      {{arr.title}}
     </td>
     <td>
-      <a href="{{art.url}}" target="_blank">Click</a>
+      <a href="{{arr.url}}" target="_blank" style="text-decoration: none">Click</a>
     </td>
     <td>
       <app-like></app-like>
@@ -26,7 +26,7 @@
 
 <table class="table">
   <thead>
-  <th> Input Title</th>
+  <th>Input Title</th>
   <th>Input Url</th>
   <th>Add</th>
   </thead>

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FacilityType} from '../../model/facility-type';
+import {FacilityTypeService} from '../../service/facility-type.service';
 
 @Component({
   selector: 'app-facility-type',
@@ -7,18 +8,12 @@ import {FacilityType} from '../../model/facility-type';
   styleUrls: ['./facility-type.component.css']
 })
 export class FacilityTypeComponent implements OnInit {
+  facilityTypeList: FacilityType[];
 
-  facility: FacilityType[] = [
-    {id: 1, name: 'Villa'},
-    {id: 2, name: 'House'},
-    {id: 3, name: 'Room'},
-  ];
-
-
-  constructor() {
+  constructor(private facilityType: FacilityTypeService) {
   }
 
   ngOnInit(): void {
+    this.facilityTypeList = this.facilityType.getAll();
   }
-
 }

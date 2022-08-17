@@ -1,8 +1,10 @@
 <app-header></app-header>
 <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+<h1 style="color:  #21D192">Thêm mới dịch vụ</h1>
+
 <div class="container-fluid">
   <div class="col-12 center">
-    <div class="row">
+    <div class="row" style="background-color: #21D192">
       <div class="col-3 left-center" style="border-radius: 10px">
         <div style="top: 20px">
           <img style="border-radius: 10px" width="100%" height="200"
@@ -27,8 +29,7 @@
       <!--card right-->
       <div class="col-9 right-center" style="border-radius: 10px">
         <div class="container mb-2 text-white">
-          <label><h1 style="color:  #21D192">Thêm mới dịch vụ</h1>
-          </label>
+
           <form method="post"
                 novalidate="novalidate">
             <div class="mb-3">
@@ -63,7 +64,7 @@
               <label><img width="30 30"
                           src="https://cdn-icons.flaticon.com/png/512/3200/premium/3200644.png?token=exp=1660574782~hmac=20f3680b898a074243ad2704d72b7360"
                           alt=""></label>
-              <select class="form-control form-control-lg" style="background-color:  #21D192">
+              <select class="form-control form-control-lg" >
                 <option>Chọn kiểu thuê</option>
                 <option>Ngày</option>
                 <option>Tháng</option>
@@ -75,7 +76,7 @@
               <label><img width="30 30"
                           src="https://cdn-icons.flaticon.com/png/512/3200/premium/3200644.png?token=exp=1660574782~hmac=20f3680b898a074243ad2704d72b7360"
                           alt=""></label>
-              <select class="form-control form-control-lg" style="background-color:  #21D192"
+              <select class="form-control form-control-lg"
                       (change)="getType($event.target.value)">
                 <option>Chọn Dịch Vụ</option>
                 <option>Villa</option>

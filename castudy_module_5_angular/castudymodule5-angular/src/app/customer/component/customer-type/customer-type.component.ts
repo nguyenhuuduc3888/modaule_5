@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CustomerType} from '../../model/customer-type';
+import {CustomerTypeService} from '../../service/customer-type.service';
 
 @Component({
   selector: 'app-customer-type',
@@ -7,17 +8,12 @@ import {CustomerType} from '../../model/customer-type';
   styleUrls: ['./customer-type.component.css']
 })
 export class CustomerTypeComponent implements OnInit {
-  customerType: CustomerType[] = [
-    {id: 1, name: 'Diamond'},
-    {id: 2, name: 'Platinum'},
-    {id: 3, name: 'Gold'},
-    {id: 4, name: 'Sliver'},
-  ];
+  customerTypeList: CustomerType[];
 
-  constructor() {
+  constructor(private customerType: CustomerTypeService) {
   }
 
   ngOnInit(): void {
+    this.customerTypeList = this.customerType.getALL();
   }
-
 }

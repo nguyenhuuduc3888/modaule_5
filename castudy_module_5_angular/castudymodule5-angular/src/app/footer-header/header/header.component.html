@@ -1,4 +1,4 @@
-<div class="col-12 menu">
+<div class="col-12 menu" >
   <nav class="navbar navbar-expand-lg  ">
     <div class="container-fluid ">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -10,20 +10,22 @@
 
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item ">
+            <a href="" [routerLink]="'/home'">
                                   <span class="left"><a style="text-decoration: none">
-            <img width=" 40 40" src="https://furamavietnam.com/wp-content/uploads/2018/10/logo.png"></a>
+            <img width=" 70 70" src="https://furamavietnam.com/wp-content/uploads/2018/10/logo.png"></a>
                                   </span>
+            </a>
           </li>
 
           <li class="nav-item x">
-            <a class="nav-link x">Khách Hàng |</a>
+            <a class="nav-link x" [routerLink]="'/list-customer'">Khách Hàng |</a>
           </li>
 
           <li class="nav-item x">
-            <a class="nav-link  x">Dịch Vụ |</a>
+            <a class="nav-link  x" [routerLink]="'/list-facility'">Dịch Vụ |</a>
           </li>
           <li class="nav-item x">
-            <a class="nav-link  x">Hợp Đồng |</a>
+            <a class="nav-link  x" [routerLink]="'/list-contract'">Hợp Đồng |</a>
           </li>
         </ul>
       </div>

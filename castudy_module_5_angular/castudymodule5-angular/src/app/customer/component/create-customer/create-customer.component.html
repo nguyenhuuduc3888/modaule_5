@@ -2,7 +2,7 @@
 <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
 <div class="container-fluid">
   <div class="col-12 center">
-    <div class="row">
+    <div class="row" style="background-color: #21D192">
       <!--trái-->
       <div class="col-3 left-center" style="border-radius: 10px">
         <div>
@@ -29,54 +29,71 @@
       <!--Giữa-->
       <div class="col-9 right-center" style="border-radius: 10px">
         <div id="form" class="text-black">
-          <form method="POST" style="border-radius: 10px">
+          <form [formGroup]="customerForm" (ngSubmit)="submit()" novalidate>
             <div>
               <label><h1 style="color:  #21D192">Thêm mới khách hàng</h1></label>
             </div>
-            <input class="form-control form-control-lg" type="hidden" placeholder=".form-control-lg"
-                   aria-label=".form-control-lg example">
+            <input class="form-control form-control-lg" type="number" placeholder="Id"
+                   aria-label=".form-control-lg example" formControlName="id">
             <div>
               <img width="30 30" src="https://cdn-icons-png.flaticon.com/512/3233/3233515.png" alt="">
-              <input class="form-check-input" type="radio" value="0" name="gender">Nữ
+              <input class="form-check-input" type="radio" value="0" name="gender" formControlName="gender">Nữ
               <img width="30 30" src="https://cdn-icons-png.flaticon.com/512/3233/3233508.png" alt="">
-              <input class="form-check-input" type="radio" value="1" name="gender">Nam
+              <input class="form-check-input" type="radio" value="1" name="gender" formControlName="gender">Nam
             </div>
             <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
 
             <div>
               <input class="form-control form-control-lg" type="text" placeholder="Nhập Tên"
-                     aria-label=".form-control-lg example">
+                     aria-label=".form-control-lg example" formControlName="name">
+            </div>
+            <div style="color: red"
+                 *ngIf="!customerForm.controls.name?.valid&&(customerForm.controls.name?.dirty||customerForm.controls.name?.touched)">
+              Tên phải viết hoa chữ cái đầu và không chứa số
             </div>
             <div>
               <input class="form-control form-control-lg" type="date" placeholder="Nhập Ngày Sinh"
-                     aria-label=".form-control-lg example">
+                     aria-label=".form-control-lg example" formControlName="birthday">
             </div>
             <div>
               <input class="form-control form-control-lg" type="text"
-                     placeholder="Chứng minh nhân dân/Căn cước công dân" aria-label=".form-control-lg example">
+                     placeholder="Chứng minh nhân dân/Căn cước công dân" aria-label=".form-control-lg example"
+                     formControlName="idCard">
+            </div>
+            <div style="color: red"
+                 *ngIf="!customerForm.controls.idCard?.valid&&(customerForm.controls.idCard?.dirty||customerForm.controls.idCard?.touched)">
+              Số CMND phải đúng định dạng 9 số hoặc 12 số (X là số 0-9)
             </div>
             <div>
               <input class="form-control form-control-lg" type="text" placeholder="Số Điện Thoại"
-                     aria-label=".form-control-lg example">
+                     aria-label=".form-control-lg example" formControlName="phoneNumber">
+            </div>
+            <div style="color:red"
+                 *ngIf="!customerForm.controls.phoneNumber?.valid&&(customerForm.controls.numberPhone?.dirty||customerForm.controls.phoneNumber?.touched)">
+              Số điện thoại phải đúng định dạng 10 số bắt đầu là 090xxxxxxx hoặc 091xxxxxxx hoặc (84)+90xxxxxxx hoặc
+              (84)+91xxxxxxx
             </div>
             <div>
               <input class="form-control form-control-lg" type="text" placeholder="Email Cá Nhân"
-                     aria-label=".form-control-lg example">
+                     aria-label=".form-control-lg example" formControlName="email">
+            </div>
+            <div style="color: red"
+                 *ngIf="!customerForm.controls.email?.valid&&(customerForm.controls.email?.dirty||customerForm.controls.email.touched)">
+              Địa chỉ email phải đúng định dạng... abc@gmail.com
             </div>
             <div>
               <input class="form-control form-control-lg" type="text" placeholder="Địa chỉ"
-                     aria-label=".form-control-lg example">
+                     aria-label=".form-control-lg example" formControlName="address">
             </div>
             <div>
-              <select style="background-color: #21D192 " class="form-control form-control-lg" type="text"
-                      placeholder=".form-control-lg" aria-label=".form-control-lg example">
-                <option>Chọn Loại Khách</option>
-                <option>Chọn Loại Khách</option>
-                <option>Chọn Loại Khách</option>
+              <select class="form-control form-control-lg" type="text"
+                      aria-label=".form-control-lg example" formControlName="customerType">
+                <option [ngValue]="null" disabled>Chọn Kiểu Khách</option>
+                <option *ngFor="let item of customerTypeList" [ngValue]="item">{{item.name}}</option>
               </select>
             </div>
             <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
-            <input type="submit" value="Lưu" class="btn btn-success">
+            <button type="submit" class="btn-success" [disabled]="!customerForm.valid" >Lưu</button>
           </form>
         </div>
       </div>

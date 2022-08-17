@@ -3,17 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListCustomerComponent } from './customer/list-customer/list-customer.component';
-import { CreateCustomerComponent } from './customer/create-customer/create-customer.component';
-import { EditCustomerComponent } from './customer/edit-customer/edit-customer.component';
+import { ListCustomerComponent } from './customer/component/list-customer/list-customer.component';
+import { CreateCustomerComponent } from './customer/component/create-customer/create-customer.component';
+import { EditCustomerComponent } from './customer/component/edit-customer/edit-customer.component';
 import { HomeComponent } from './home-page/home/home.component';
-import { ListFacilityComponent } from './facility/list-facility/list-facility.component';
-import { CreateFacilityComponent } from './facility/create-facility/create-facility.component';
-import { EditFacilityComponent } from './facility/edit-facility/edit-facility.component';
-import { ListContractComponent } from './contract/list-contract/list-contract.component';
-import { CreateContractComponent } from './contract/create-contract/create-contract.component';
+import { ListFacilityComponent } from './facility/component/list-facility/list-facility.component';
+import { CreateFacilityComponent } from './facility/component/create-facility/create-facility.component';
+import { EditFacilityComponent } from './facility/component/edit-facility/edit-facility.component';
+import { ListContractComponent } from './contract/component/list-contract/list-contract.component';
+import { CreateContractComponent } from './contract/component/create-contract/create-contract.component';
 import { FooterComponent } from './footer-header/footer/footer.component';
 import { HeaderComponent } from './footer-header/header/header.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { CustomerTypeComponent } from './customer/component/customer-type/customer-type.component';
+import { FacilityTypeComponent } from './facility/component/facility-type/facility-type.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +31,16 @@ import { HeaderComponent } from './footer-header/header/header.component';
     ListContractComponent,
     CreateContractComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    CustomerTypeComponent,
+    FacilityTypeComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

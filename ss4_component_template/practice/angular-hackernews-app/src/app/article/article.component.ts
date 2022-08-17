@@ -11,15 +11,15 @@ export class ArticleComponent implements OnInit {
   article: Article = {};
   articles: Article[] = [
     {
-      title: 'duc',
+      title: 'lê vũ nguyên',
       url: 'https://levunguyen.com/laptrinhjava/2020/01/01/khai-bao-bien-trong-lap-trinh-java/'
     },
     {
-      title: 'hau',
+      title: 'face book',
       url: 'https://www.facebook.com/'
     },
     {
-      title: 'quyen',
+      title: 'Xem phim',
       url: 'https://flixtor.video/home'
     },
   ];

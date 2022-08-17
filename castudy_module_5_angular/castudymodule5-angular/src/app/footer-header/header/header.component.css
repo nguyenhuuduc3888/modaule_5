@@ -12,12 +12,13 @@
 
 
 ul li {
-  font-family: Papyrus;
   font-size: 30px;
 }
 
 a{
-  color: #000 !important;
+  color: white !important;
+  font-weight: bold;
+  font-size: 30px;
 }
 
 .menu {

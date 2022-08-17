@@ -25,9 +25,9 @@
             font-size: 30px;
         }
 
-a{
-    color: #000 !important;
-}
+        a {
+            color: #000 !important;
+        }
 
         .menu {
             background-color: #21D192;
@@ -75,18 +75,18 @@ a{
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item ">
-                                  <span class="left"><a style="text-decoration: none" th:href="@{/}">
+                                  <span class="left"><a style="text-decoration: none" >
             <img width=" 40 40" src="https://furamavietnam.com/wp-content/uploads/2018/10/logo.png"></a>
                                   </span>
                         </li>
                         <li class="nav-item x">
-                            <a class="nav-link x" th:href="@{/customer}">Customer</a>
+                            <a class="nav-link x">Customer</a>
                         </li>
                         <li class="nav-item x">
-                            <a class="nav-link  x" th:href="@{/facility}">Facility</a>
+                            <a class="nav-link  x">Facility</a>
                         </li>
                         <li class="nav-item x">
-                            <a class="nav-link  x" th:href="@{/contract}">Contract</a>
+                            <a class="nav-link  x">Contract</a>
                         </li>
                     </ul>
                 </div>
@@ -104,11 +104,12 @@ a{
     </div>
 
     <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
-<h1>List Customer</h1>
-    <div class="row" >
+
+    <h1>List Customer</h1>
+    <div class="row">
         <div class="col-11">
             <button class="x" style="border-radius: 10px;background-color: white">
-                <a style="text-decoration: none" >
+                <a style="text-decoration: none">
                     <img width="40 40" src="https://cdn-icons-png.flaticon.com/512/1387/1387940.png"></a>
             </button>
         </div>
@@ -175,36 +176,42 @@ a{
                         <td>Diamond</td>
                         <td>
                             <!--nút edit-->
-                            <button type="button" class="btn btn-outline-success" >
-                                <a style="text-decoration: none;color: forestgreen" href="@{/customer/update(id=${c.id})}">Edit</a>
+                            <button type="button" class="btn btn-outline-success">
+                                <a style="text-decoration: none;color: forestgreen"
+                                   href="@{/customer/update(id=${c.id})}">Edit</a>
                             </button>
                         </td>
-                       <td>
-                           <!-- Button trigger modal -->
-                           <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                              Delete
-                           </button>
+                        <td>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                Delete
+                            </button>
 
-                           <!-- Modal -->
-                           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                               <div class="modal-dialog">
-                                   <div class="modal-content">
-                                       <div class="modal-header">
-                                           <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                       </div>
-                                       <div class="modal-body">
-                                           ban co muon xoa nguyen huu duc
-                                       </div>
-                                       <div class="modal-footer">
-                                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                           <button type="button" class="btn btn-primary">Save changes</button>
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                 aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            ban co muon xoa nguyen huu duc
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                Close
+                                            </button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                       </td>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
