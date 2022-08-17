@@ -1,0 +1,115 @@
+<app-header></app-header>
+<div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+<div class="container-fluid">
+<div class="row">
+  <div class="col-11">
+    <h1 style="color:  #21D192">Danh Sách Khách Hàng</h1>
+  </div>
+  <div class="col-1">
+    <button class="x btn btn-outline-success" [routerLink]="'/create-customer'">
+      <a style="text-decoration: none" >
+        <img   width="30 30" src="https://cdn-icons-png.flaticon.com/512/1387/1387940.png"></a>
+    </button>
+  </div>
+</div>
+<div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+
+<div class="col-12 center">
+  <div class="row">
+    <div class="col-3 left-center" style="border-radius: 10px">
+      <div>
+        <img style="border-radius: 10px" width="100%" height="200"
+             src="https://cdnimg.vietnamplus.vn/uploaded/mzdic/2016_08_01/terracesuitemassage.jpg" alt="">
+      </div>
+
+      <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+
+      <div>
+        <img style="border-radius: 10px" width="100%" height="200"
+             src="https://znews-photo.zingcdn.me/w660/Uploaded/mdf_eioxrd/2020_07_17/59616285_713391439075751_3135087743581738492_n.jpg"
+             alt="">
+
+      </div>
+      <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+
+      <div>
+        <img style="border-radius: 10px" width="100%" height="200"
+             src="https://mai.wedding/wp-content/uploads/2019/06/xu-huong-chup-anh-cuoi-tai-resort-khach-san.jpg"
+             alt="">
+      </div>
+    </div>
+
+    <!--Table-->
+    <div class="col-9 right-center" style="border-radius: 10px">
+
+      <table class="table" style="font-size: 13px">
+        <thead style="background-color: #21D192">
+        <tr>
+          <th>Stt</th>
+          <th>Tên</th>
+          <th>Ngày Sinh</th>
+          <th>Giới Tính</th>
+          <th>Chứng minh thư</th>
+          <th>Số Điện Thoại</th>
+          <th>Email</th>
+          <th>Địa Chỉ</th>
+          <th>Kiểu Khách</th>
+          <th>Sửa</th>
+          <th>Xóa</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>1</td>
+          <td>Nguyễn Hữu Đức</td>
+          <td>13/09/1997</td>
+          <td>Nam</td>
+          <td>184309497</td>
+          <td>0899607659</td>
+          <td>nguyenhuuduc3888@gmail.com</td>
+          <td>Hà Tĩnh</td>
+          <td>Diamond</td>
+          <td>
+            <!--nút edit-->
+            <button type="button" class="btn btn-outline-success">
+              <a style="text-decoration: none"  [routerLink]="'/edit-customer'">Sửa</a>
+            </button>
+          </td>
+          <td>
+            <!-- nút xóa-->
+            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+              Xóa
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Xóa Khách Hàng</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="color: red">
+                    Bạn có muốn xóa Nguyễn Hữu Đức,Số chứng minh nhân dân:184309497
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                      Không
+                    </button>
+                    <button type="button" class="btn btn-primary">Có</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+<app-footer></app-footer>
