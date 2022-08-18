@@ -3,19 +3,19 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TodoComponent } from './todo/component/todo.component';
+import { LoginComponent } from './component/login/login.component';
 import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoComponent
+    LoginComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
