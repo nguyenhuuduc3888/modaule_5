@@ -9,7 +9,7 @@ export class FacilityService {
     {
       id: 1,
       facilityType: {id: 1, name: 'Villa'},
-        name: 'View biển',
+      name: 'View biển',
       area: 100,
       cost: 15000000,
       maxPeople: 8,
@@ -75,6 +75,24 @@ export class FacilityService {
 
   getAll() {
     return this.facilityList;
+  }
+
+  save(facility) {
+    this.facilityList.push(facility);
+  }
+
+  update(id: number, facility: Facility) {
+    for (let i = 0; i < this.facilityList.length; i++) {
+      if (this.facilityList[i].id === id) {
+        this.facilityList[i] = facility;
+      }
+    }
+  }
+
+  delete(id: number) {
+    this.facilityList = this.facilityList.filter(facility => {
+      return facility.id !== id;
+    });
   }
 
   constructor() {

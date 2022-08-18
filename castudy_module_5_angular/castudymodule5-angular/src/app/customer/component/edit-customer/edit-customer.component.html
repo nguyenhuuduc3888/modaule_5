@@ -1,40 +1,25 @@
 <app-header></app-header>
-<div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
 <div class="container-fluid">
+  <h5>
+    <marquee style="color: white"> Liên hệ booking : 0944333333</marquee>
+
+    <marquee style=" font-weight: bold" direction="left"> KHU NGHỈ DƯỠNG ĐẲNG CẤP THẾ GIỚI, FURAMA ĐÀ NẴNG, NỔI TIẾNG LÀ
+      KHU NGHỈ DƯỠNG ẨM THỰC TẠI VIỆT
+      NAM.
+    </marquee>
+  </h5>
   <div class="col-12 center">
-    <div class="row" style="background-color: #21D192">
-      <!--trái-->
-      <div class="col-3 left-center" style="border-radius: 10px">
-        <div>
-          <img style="border-radius: 10px" width="100%" height="200"
-               src="https://www.vnbooking.com/upload/article/furama_resort_danang4(1).jpg" alt="">
-        </div>
+      <div class="row"  style="background-color: #21D192">
 
-        <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
-
-        <div>
-          <img style="border-radius: 10px" width="100%" height="200"
-               src="https://du-lich.chudu24.com/f/m/1603/18/furama-resort-da-nang-1.jpg?w=800&h=500"
-               alt="">
-
-        </div>
-        <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
-
-        <div>
-          <img style="border-radius: 10px" width="100%" height="200"
-               src="https://fantasea.vn/wp-content/uploads/2017/10/Furama-%C4%90%C3%A0-N%E1%BA%B5ng-Resort.jpg"
-               alt="">
-        </div>
-      </div>
 
       <!--Giữa-->
-      <div class="col-9 right-center" style="border-radius: 10px">
+      <div class="col-12 right-center" style="border-radius: 10px">
         <div id="form" class="text-black">
           <label>
-            <h1 style="color:  #21D192">Sửa Thông Tin Khách Hàng</h1>
+            <h1 style="color:  white">Sửa Thông Tin Khách Hàng</h1>
           </label>
           <form [formGroup]="customerForm" (ngSubmit)="update(id)" novalidate>
-            <input class="form-control form-control-lg" type="hidden" placeholder=".form-control-lg"
+            <input class="form-control form-control-lg" placeholder="Id"
                    aria-label=".form-control-lg example" formControlName="id">
             <div>
               <img width="30 30" src="https://cdn-icons-png.flaticon.com/512/3233/3233515.png" alt="">
@@ -48,7 +33,7 @@
                      aria-label=".form-control-lg example" formControlName="name">
             </div>
             <div style="color: red"
-                 *ngIf="customerForm.controls.name?.valid&&(customerForm.controls.name?.dirty||customerForm.controls.name?.touched)">
+                 *ngIf="!customerForm.controls.name?.valid&&(customerForm.controls.name?.dirty||customerForm.controls.name?.touched)">
               Tên phải viết hoa chữ cái đầu và không chứa số
             </div>
             <div>
@@ -57,7 +42,7 @@
                      aria-label=".form-control-lg example" formControlName="idCard">
             </div>
             <div style="color: red"
-                 *ngIf="customerForm.controls.idCard?.valid&&(customerForm.controls.idCard?.dirty||customerForm.controls.idCard.touched)"
+                 *ngIf="!customerForm.controls.idCard?.valid&&(customerForm.controls.idCard?.dirty||customerForm.controls.idCard.touched)"
             >
               Số CMND phải đúng định dạng 9 số hoặc 12 số (X là số 0-9)
             </div>

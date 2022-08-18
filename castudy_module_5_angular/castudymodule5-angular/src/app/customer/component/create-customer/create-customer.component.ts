@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomerType} from '../../model/customer-type';
 import {CustomerService} from '../../service/customer.service';
 import {CustomerTypeService} from '../../service/customer-type.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-create-customer',
@@ -11,7 +12,7 @@ import {CustomerTypeService} from '../../service/customer-type.service';
 })
 export class CreateCustomerComponent implements OnInit {
 
-  constructor(private customerService: CustomerService, private customerTypeService: CustomerTypeService) {
+  constructor(private customerService: CustomerService, private customerTypeService: CustomerTypeService, private router: Router) {
   }
 
   customerForm = new FormGroup({
@@ -36,6 +37,7 @@ export class CreateCustomerComponent implements OnInit {
     const customer = this.customerForm.value;
     this.customerService.save(customer);
     this.customerForm.reset();
+    this.router.navigate(['/list-customer']);
   }
 
   ngOnInit(): void {

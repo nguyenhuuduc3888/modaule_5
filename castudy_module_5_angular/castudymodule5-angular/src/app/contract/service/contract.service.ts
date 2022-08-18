@@ -30,6 +30,10 @@ export class ContractService {
     return this.contractList;
   }
 
+  save(contract) {
+    this.contractList.push(contract);
+  }
+
   constructor() {
   }
 }

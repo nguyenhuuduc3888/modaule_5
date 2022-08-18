@@ -1,37 +1,20 @@
 <app-header></app-header>
-<div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
 <div class="container-fluid">
+  <h5>
+    <marquee style="color: white"> Liên hệ booking : 0944333333</marquee>
+
+    <marquee style=" font-weight: bold" direction="left"> KHU NGHỈ DƯỠNG ĐẲNG CẤP THẾ GIỚI, FURAMA ĐÀ NẴNG, NỔI TIẾNG LÀ
+      KHU NGHỈ DƯỠNG ẨM THỰC TẠI VIỆT
+      NAM.
+    </marquee>
+  </h5>
   <div class="col-12 center">
     <div class="row" style="background-color: #21D192">
-      <!--trái-->
-      <div class="col-3 left-center" style="border-radius: 10px">
-        <div>
-          <img style="border-radius: 10px" width="100%" height="200"
-               src="https://www.vnbooking.com/upload/article/furama_resort_danang4(1).jpg" alt="">
-        </div>
-
-        <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
-
-        <div>
-          <img style="border-radius: 10px" width="100%" height="200"
-               src="https://du-lich.chudu24.com/f/m/1603/18/furama-resort-da-nang-1.jpg?w=800&h=500"
-               alt="">
-
-        </div>
-        <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
-
-        <div>
-          <img style="border-radius: 10px" width="100%" height="200"
-               src="https://fantasea.vn/wp-content/uploads/2017/10/Furama-%C4%90%C3%A0-N%E1%BA%B5ng-Resort.jpg"
-               alt="">
-        </div>
-      </div>
-      <!--Giữa-->
-      <div class="col-9 right-center" style="border-radius: 10px">
+      <div class="col-12 right-center" style="border-radius: 10px">
         <div id="form" class="text-black">
           <form [formGroup]="customerForm" (ngSubmit)="submit()" novalidate>
             <div>
-              <label><h1 style="color:  #21D192">Thêm mới khách hàng</h1></label>
+              <label><h1 style="color:  white">Thêm mới khách hàng</h1></label>
             </div>
             <input class="form-control form-control-lg" type="number" placeholder="Id"
                    aria-label=".form-control-lg example" formControlName="id">
@@ -69,7 +52,7 @@
                      aria-label=".form-control-lg example" formControlName="phoneNumber">
             </div>
             <div style="color:red"
-                 *ngIf="!customerForm.controls.phoneNumber?.valid&&(customerForm.controls.numberPhone?.dirty||customerForm.controls.phoneNumber?.touched)">
+                 *ngIf="!customerForm.controls.phoneNumber?.valid&&(customerForm.controls.phoneNumber?.dirty||customerForm.controls.phoneNumber?.touched)">
               Số điện thoại phải đúng định dạng 10 số bắt đầu là 090xxxxxxx hoặc 091xxxxxxx hoặc (84)+90xxxxxxx hoặc
               (84)+91xxxxxxx
             </div>
@@ -93,7 +76,7 @@
               </select>
             </div>
             <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
-            <button type="submit" class="btn-success" [disabled]="!customerForm.valid" >Lưu</button>
+            <button type="submit" class=" btn btn-success" [disabled]="!customerForm.valid " >Lưu</button>
           </form>
         </div>
       </div>

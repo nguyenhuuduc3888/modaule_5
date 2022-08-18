@@ -4,7 +4,7 @@ import {CustomerService} from '../../service/customer.service';
 import {CustomerTypeService} from '../../service/customer-type.service';
 import {CustomerType} from '../../model/customer-type';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {ActivatedRoute, ParamMap} from '@angular/router';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 
 @Component({
   selector: 'app-edit-customer',
@@ -18,7 +18,7 @@ export class EditCustomerComponent implements OnInit {
   customerList: Customer [];
 
   // tslint:disable-next-line:max-line-length
-  constructor(private activatedRoute: ActivatedRoute, private customerService: CustomerService, private customerTypeService: CustomerTypeService) {
+  constructor(private activatedRoute: ActivatedRoute, private customerService: CustomerService, private customerTypeService: CustomerTypeService, private router: Router) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
       const customer = this.getCustomer(this.id);
@@ -54,5 +54,6 @@ export class EditCustomerComponent implements OnInit {
   update(id: number) {
     const customer = this.customerForm.value;
     this.customerService.update(id, customer);
+    this.router.navigate(['/list-customer']);
   }
 }

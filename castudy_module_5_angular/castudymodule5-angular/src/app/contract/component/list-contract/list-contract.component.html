@@ -1,6 +1,14 @@
 <app-header></app-header>
 <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
-<h1 style="color:  #21D192">Danh Sách Hợp Đồng</h1>
+<h5>
+  <marquee style="color: white"> Liên hệ booking : 0944333333</marquee>
+
+  <marquee style=" font-weight: bold" direction="left"> KHU NGHỈ DƯỠNG ĐẲNG CẤP THẾ GIỚI, FURAMA ĐÀ NẴNG, NỔI TIẾNG LÀ
+    KHU NGHỈ DƯỠNG ẨM THỰC TẠI VIỆT
+    NAM.
+  </marquee>
+</h5>
+<h1 style="color:  white">Danh Sách Hợp Đồng</h1>
 <div class="container-fluid">
   <div class="col-12 center">
     <div class="row" style="background-color: #21D192">
@@ -28,7 +36,7 @@
       </div>
 
       <!--Table-->
-      <div class="col-9 right-center" style="border-radius: 20px;padding-top: 20px">
+      <div class="col-9 right-center" style="border-radius: 20px">
 
         <table id="products" class="table table-hover table-bordered table-responsive" style="font-size: 13px">
           <thead >
@@ -55,7 +63,7 @@
             <td>
               <button [routerLink]="'/create-contract'" type="button" class="btn btn-outline-success"
                       data-bs-toggle="modal"
-                      :data-bs-target="'#staticBackdrop' + ${c.id}">
+                      :data-bs-target="'#staticBackdrop' ">
                 <img width="25 25" src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="">
               </button>
               <!-- Button trigger modal -->
