@@ -1,0 +1,18 @@
+<table class="table table-hover text-center" style="background-color: navajowhite">
+  <tr>
+    <th>Stt</th>
+    <th>Ten</th>
+    <th>Dich</th>
+    <th>Chi tiet</th>
+
+  </tr>
+  <tr *ngFor="let d of listDictionary,index as i">
+    <td>{{i + 1}}</td>
+    <td>{{d.name}}</td>
+    <td>
+      <button class="btn btn-danger" (click)="getDetail(d)">Dich</button>
+    </td>
+    <td *ngIf="d.id===idDetail">{{detail}}</td>
+
+  </tr>
+</table>
