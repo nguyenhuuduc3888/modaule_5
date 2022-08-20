@@ -14,21 +14,21 @@ export class ProductService {
       img: 'https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg'
     },
     {
-      id: 1,
+      id: 3,
       name: 'Samsung Galaxy Note 20',
       price: 6000000,
       description: 'New 100%',
       img: 'https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg'
     },
     {
-      id: 1,
+      id: 2,
       name: 'Xiaomi S20 Utral',
       price: 7000000,
       description: 'New 100%',
       img: 'https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg'
     },
     {
-      id: 1,
+      id: 4,
       name: 'Huawei P50 ',
       price: 8000000,
       description: 'New 100%',

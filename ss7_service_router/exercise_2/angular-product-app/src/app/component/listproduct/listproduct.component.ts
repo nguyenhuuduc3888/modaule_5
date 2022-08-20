@@ -9,10 +9,7 @@ import {Product} from '../../model/product';
 })
 export class ListproductComponent implements OnInit {
   listProduct: Product[];
-  name: string;
-  img: string;
-  id: number;
-  price: number;
+  idDelete: number;
 
   constructor(private productService: ProductService) {
   }
@@ -21,15 +18,9 @@ export class ListproductComponent implements OnInit {
     this.listProduct = this.productService.getAll();
   }
 
-  openDelete(product: Product) {
-    this.name = product.name;
-    this.img = product.img;
-    this.price = product.price;
-    this.id = product.id;
-  }
-
-  delete(id: number) {
-    this.productService.delete(id);
+  delete(product: Product) {
+    this.idDelete = product.id;
+    this.productService.delete(this.idDelete);
     this.ngOnInit();
   }
 }

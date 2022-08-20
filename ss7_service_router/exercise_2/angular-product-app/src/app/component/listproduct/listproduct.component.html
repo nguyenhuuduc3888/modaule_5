@@ -39,7 +39,7 @@
                       <div class="col-4">
                         <!-- nút xóa-->
                         <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                (click)="openDelete(product)">
+                                (click)="delete(product)">
                           <img width="30 30" src="https://cdn-icons-png.flaticon.com/512/3221/3221897.png">
                         </button>
                       </div>
@@ -50,38 +50,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Body modal-->
-<div class="modal fade" id="exampleModal" aria-hidden="true" tabindex="-1" aria-labelledby="exampleModalLabel">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header ">
-        <h5 class="modal-title" id="exampleModalLabel">Xóa Sản Phẩm</h5>
-        <button type="button" class="btn-close" data-bs-target="modal" aria-label="close"></button>
-      </div>
-
-      <div class="modal-body" style="color: red">
-        Bạn có muốn xóa dịch vụ này không
-        <br>
-        <div class="card mx-auto" style="width: 18rem;">
-          <img [src]="img">
-          <div class="card-body">
-            <h5 class="card-text">{{name}}</h5>
-            <h6 style="color: red">{{price|currency}}</h6>
-          </div>
-        </div>
-      </div>
-      <!-- có/ không-->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Không
-        </button>
-        <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="delete(id)">
-          Có
-        </button>
       </div>
     </div>
   </div>
