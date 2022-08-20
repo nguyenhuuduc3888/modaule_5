@@ -1,0 +1,88 @@
+<h5>
+  <marquee style="color: red"> Liên hệ để nhận giá ưu đãi : 0944333333</marquee>
+  <marquee style=" font-weight: bold" direction="left">Cửa hàng điện thoại uy tín nhất Việt Nam
+  </marquee>
+</h5>
+<div class="container-fluid">
+  <div class="col-12 center">
+    <div class="row">
+      <div class="col-12 " style="border-radius: 10px;background-color: #21D192">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-3 x" *ngFor="let product of listProduct" style="box-shadow: navajowhite;padding: 20px">
+              <div class="card " style="width: 18rem;">
+                <img [src]="product.img"
+                     class="card-img-top p-10 " width="100%" height="300px" alt="img">
+                <div class="card-body">
+                  <h5 style="font-weight: bold" class="card-text">{{product.name}}</h5>
+                  <p style="color: red">{{product.price|currency: "VND"}}</p>
+                  <p>{{product.description}}</p>
+                  <div class="col-12 center ">
+                    <div class="row">
+                      <div class="col-4">
+                        <!--nút thêm-->
+                        <button [routerLink]="['/createproduct']" type="button" class="btn ">
+                          <img width="30 30"
+                               src="https://cdn-icons.flaticon.com/png/512/4715/premium/4715131.png?token=exp=1660902083~hmac=604c0cc5260c1ef579816904c7b70e24"
+                               alt="">
+                        </button>
+                      </div>
+
+                      <div class="col-4">
+                        <!--nút edit-->
+                        <button [routerLink]="['/editproduct',product.id]" type="button" class="btn ">
+                          <img width="30 30"
+                               src="https://cdn-icons.flaticon.com/png/512/738/premium/738880.png?token=exp=1660556850~hmac=dfc661d32c3036a45ecbf847b1db7453"
+                               alt="">
+                        </button>
+                      </div>
+                      <div class="col-4">
+                        <!-- nút xóa-->
+                        <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                (click)="openDelete(product)">
+                          <img width="30 30" src="https://cdn-icons-png.flaticon.com/512/3221/3221897.png">
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Body modal-->
+<div class="modal fade" id="exampleModal" aria-hidden="true" tabindex="-1" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header ">
+        <h5 class="modal-title" id="exampleModalLabel">Xóa Sản Phẩm</h5>
+        <button type="button" class="btn-close" data-bs-target="modal" aria-label="close"></button>
+      </div>
+
+      <div class="modal-body" style="color: red">
+        Bạn có muốn xóa dịch vụ này không
+        <br>
+        <div class="card mx-auto" style="width: 18rem;">
+          <img [src]="img">
+          <div class="card-body">
+            <h5 class="card-text">{{name}}</h5>
+            <h6 style="color: red">{{price|currency}}</h6>
+          </div>
+        </div>
+      </div>
+      <!-- có/ không-->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Không
+        </button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="delete(id)">
+          Có
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

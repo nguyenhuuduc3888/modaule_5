@@ -1,0 +1,13 @@
+.card {
+  border-radius: 15px;
+}
+
+.x {
+  transition-duration:0.3s;
+  transition-property: transform;
+  transition-timing-function: ease-out;
+}
+
+.x:hover {
+  transform: translateY(-30px);
+}
