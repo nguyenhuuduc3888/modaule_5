@@ -1,0 +1,13 @@
+<form [formGroup]="categoryForm" (ngSubmit)="submit()">
+  <div>
+    <label>Nhập Id</label>
+    <input class="form-control form-control-lg" formControlName="id">
+  </div>
+  <div>
+    <label >Nhập Tên</label>
+    <input class="form-control form-control-lg" formControlName="name">
+  </div>
+  <div>
+    <button type="submit" class="btn btn-success">Lưu</button>
+  </div>
+</form>

@@ -1,0 +1,27 @@
+<h5>
+  <marquee style="color: red"> Liên hệ để nhận giá ưu đãi : 0944333333</marquee>
+  <marquee style=" font-weight: bold" direction="left">Cửa hàng điện thoại uy tín nhất Việt Nam
+  </marquee>
+</h5>
+<table class="table table-hover table-bordered">
+  <tr>
+    <th>Stt</th>
+    <th>Tên</th>
+    <th>Thêm</th>
+    <th>Sửa</th>
+    <th>Xóa</th>
+  </tr>
+  <tr *ngFor="let category of listCategory,index as i">
+    <td>{{i + 1}}</td>
+    <td>{{category.name}}</td>
+    <td>
+      <button class="btn btn-dark btn-outline-danger" [routerLink]="['/category/create']">Thêm</button>
+    </td>
+    <td>
+      <button class="btn btn-dark btn-outline-danger" [routerLink]="['/category/edit',category.id]">Sửa</button>
+    </td>
+    <td>
+      <button class="btn btn-dark btn-outline-danger" (click)="delete(category)">Xóa</button>
+    </td>
+  </tr>
+</table>
