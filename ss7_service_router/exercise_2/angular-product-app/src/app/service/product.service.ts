@@ -39,19 +39,19 @@ export class ProductService {
   constructor() {
   }
 
-  getAll() {
+  getAllProduct() {
     return this.productList;
   }
 
-  save(product) {
+  saveProduct(product) {
     this.productList.push(product);
   }
 
-  findById(id: number) {
+  findByIdProduct(id: number) {
     return this.productList.find(product => product.id === id);
   }
 
-  update(id: number, product: Product) {
+  updateProduct(id: number, product: Product) {
     for (let i = 0; i < this.productList.length; i++) {
       if (this.productList[i].id === id) {
         this.productList[i] = product;
@@ -59,7 +59,7 @@ export class ProductService {
     }
   }
 
-  delete(id: number) {
+  deleteProduct(id: number) {
     this.productList = this.productList.filter(product => {
       return product.id !== id;
     });

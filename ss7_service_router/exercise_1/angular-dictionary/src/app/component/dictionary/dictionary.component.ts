@@ -9,19 +9,12 @@ import {Dictionary} from '../../model/dictionary';
 })
 export class DictionaryComponent implements OnInit {
   listDictionary: Dictionary[];
-  idDetail: number;
-  detail: string;
 
   constructor(private dictionaryService: DictionaryService) {
   }
 
   ngOnInit(): void {
-    this.listDictionary = this.dictionaryService.getAll();
+    this.listDictionary = this.dictionaryService.getAllDictionary();
   }
 
-  getDetail(d: Dictionary) {
-    this.idDetail = d.id;
-    this.detail = d.detail;
-    this.dictionaryService.finById(this.idDetail);
-  }
 }

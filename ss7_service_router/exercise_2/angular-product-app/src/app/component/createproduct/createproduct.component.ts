@@ -26,7 +26,7 @@ export class CreateproductComponent implements OnInit {
 
   submit() {
     const product = this.productForm.value;
-    this.productService.save(product);
+    this.productService.saveProduct(product);
     this.productForm.reset();
     this.router.navigate(['listproduct']);
   }

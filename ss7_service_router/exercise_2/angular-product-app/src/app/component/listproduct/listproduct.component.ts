@@ -15,12 +15,12 @@ export class ListproductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.listProduct = this.productService.getAll();
+    this.listProduct = this.productService.getAllProduct();
   }
 
   delete(product: Product) {
     this.idDelete = product.id;
-    this.productService.delete(this.idDelete);
+    this.productService.deleteProduct(this.idDelete);
     this.ngOnInit();
   }
 }

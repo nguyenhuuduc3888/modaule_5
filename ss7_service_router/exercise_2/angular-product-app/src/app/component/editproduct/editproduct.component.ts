@@ -30,15 +30,13 @@ export class EditproductComponent implements OnInit {
   }
 
   private getProduct(id: number) {
-    return this.productService.findById(id);
+    return this.productService.findByIdProduct(id);
   }
 
   update(id: number) {
     const product = this.productForm.value;
-    this.productService.update(id, product);
+    this.productService.updateProduct(id, product);
     this.productForm.reset();
     this.router.navigate(['/listproduct']);
   }
-
-
 }

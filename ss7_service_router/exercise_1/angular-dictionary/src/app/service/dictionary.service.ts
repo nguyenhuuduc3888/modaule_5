@@ -6,19 +6,19 @@ import {Dictionary} from '../model/dictionary';
 })
 export class DictionaryService {
   listDictionary: Dictionary[] = [
-    {id: 1, name: 'Book', detail: 'Sach'},
-    {id: 2, name: 'Computer', detail: 'May Tinh'},
-    {id: 3, name: 'Card', detail: 'The'},
+    {id: 1, name: 'Book', detail: 'Sách'},
+    {id: 2, name: 'Computer', detail: 'Máy Tính'},
+    {id: 3, name: 'Card', detail: 'Thẻ'},
   ];
 
   constructor() {
   }
 
-  getAll() {
+  getAllDictionary() {
     return this.listDictionary;
   }
 
-  finById(id: number) {
-    return this.listDictionary.find(d => d.id === id);
+  finByIdDetail(id: number) {
+    return this.listDictionary.find(detail => detail.id === id);
   }
 }
