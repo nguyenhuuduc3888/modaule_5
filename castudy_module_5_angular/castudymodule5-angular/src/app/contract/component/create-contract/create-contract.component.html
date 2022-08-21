@@ -11,7 +11,7 @@
 <h1 style="color:  white">Thêm Mới Hợp Đồng</h1>
 
 <div class="container-fluid">
-  <div class="col-12 center ">
+  <div class="col-12 center "style="box-shadow: #046056">
     <div class="row x" style="background-color: #21D192">
       <div class="col-3 left-center" style="border-radius: 10px">
         <div>
@@ -36,38 +36,53 @@
 
       <!--card right-->
 
-      <div class="col-9 right-center " style="border-radius: 10px">
-        <div id="form" class="text-black">
+      <div class="col-9 right-center " style="border-radius: 10px;box-shadow:firebrick">
+        <div id="form" class="text-black" >
           <form [formGroup]="contractForm" (ngSubmit)="submit()" novalidate>
-            <input class="form-control form-control-lg" type="text" placeholder="id"
+            <input class="form-control form-control-lg" type="text" placeholder="Nhập Id"
                    aria-label=".form-control-lg example" formControlName="id">
-            <div>
-              <input class="form-control form-control-lg mx-auto" type="date" placeholder="Ngày bắt đầu"
-                     formControlName="startDate">
-            </div>
             <p style="color: red"
-            *ngIf="!contractForm.controls.id?.valid&&(contractForm.controls.id?.dirty||contractForm.controls.id?.touched)"
-            > Khong duoc de trong</p>
+               *ngIf="!contractForm.controls.id?.valid&&(contractForm.controls.id?.dirty||contractForm.controls.id?.touched)"
+            >Không được để trống</p>
+            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+
             <div>
+              <div>
+                <input class="form-control form-control-lg mx-auto" type="date" placeholder="Ngày bắt đầu"
+                       formControlName="startDate">
+              </div>
+              <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+
               <input class="form-control form-control-lg" type="date" placeholder="Ngày kết thúc"
                      aria-label=".form-control-lg example" formControlName="endDate">
             </div>
+            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+
             <div>
               <input class="form-control form-control-lg" type="text" placeholder="Tiền Cọc"
                      aria-label=".form-control-lg example" formControlName="deposit">
             </div>
+            <p style="color: red"
+               *ngIf="!contractForm.controls.deposit?.hasError('pattern')&&(contractForm.controls.deposit?.dirty)">
+              Phải là số dương
+            </p>
+            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+
             <div>
-              <input class="form-control form-control-lg" type="text" placeholder="Tong tien"
+              <input class="form-control form-control-lg" type="text" placeholder="Tổng Tiền"
                      aria-label=".form-control-lg example" formControlName="total">
             </div>
+            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+
             <div>
               <select class="form-control form-control-lg" type="text"
                       aria-label=".form-control-lg example" formControlName="customer">
                 <option [ngValue]="null" disabled>Chọn tên khách</option>
                 <option *ngFor="let item of customerList" [ngValue]="item">{{item.name}}</option>
-
               </select>
             </div>
+            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+
             <div>
               <select class="form-control form-control-lg" type="text" placeholder=".form-control-lg"
                       aria-label=".form-control-lg example" formControlName="facility">
@@ -75,8 +90,11 @@
                 <option *ngFor="let item of facilityList" [ngValue]="item">{{item.name}}</option>
               </select>
             </div>
+            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+
             <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
-            <input type="submit" value="Lưu" class="btn btn-success" [disabled]="!contractForm.valid">
+            <button type="submit"  class="btn btn-success" [disabled]="contractForm.valid">Lưu</button>
+
           </form>
         </div>
       </div>

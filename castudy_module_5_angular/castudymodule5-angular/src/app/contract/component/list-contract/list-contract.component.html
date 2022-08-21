@@ -39,7 +39,7 @@
       <div class="col-9 right-center" style="border-radius: 20px">
 
         <table id="products" class="table table-hover table-bordered table-responsive" style="font-size: 13px">
-          <thead >
+          <thead>
           <tr>
             <th>STT</th>
             <th>Ngày bắt đầu</th>
@@ -59,7 +59,7 @@
             <td>{{contract.deposit}}</td>
             <td>{{contract.customer.name}}</td>
             <td>{{contract.facility.name}}</td>
-            <td>N/A</td>
+            <td>{{contract.total}}</td>
             <td>
               <button [routerLink]="'/create-contract'" type="button" class="btn btn-outline-success"
                       data-bs-toggle="modal"

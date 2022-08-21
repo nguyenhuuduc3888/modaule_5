@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Customer} from '../../model/customer';
 import {CustomerService} from '../../service/customer.service';
 import {CustomerTypeService} from '../../service/customer-type.service';
 import {CustomerType} from '../../model/customer-type';
@@ -14,11 +13,8 @@ import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 export class EditCustomerComponent implements OnInit {
   customerForm: FormGroup;
   id: number;
-
-  customerList: Customer [];
-
-  // tslint:disable-next-line:max-line-length
-  constructor(private activatedRoute: ActivatedRoute, private customerService: CustomerService, private customerTypeService: CustomerTypeService, private router: Router) {
+  constructor(private activatedRoute: ActivatedRoute, private customerService: CustomerService,
+              private customerTypeService: CustomerTypeService, private router: Router) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
       const customer = this.getCustomer(this.id);

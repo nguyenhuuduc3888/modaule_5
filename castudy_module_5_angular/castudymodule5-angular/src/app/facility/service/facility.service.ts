@@ -17,6 +17,7 @@ export class FacilityService {
       descriptionOtherConvenience: 'Phòng rộng rãi,có điều hòa',
       numberOfFloors: 3,
       poolArea: 30,
+      facilityFree: 'Dọn phòng',
       img: 'https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg'
     },
     {
@@ -30,6 +31,8 @@ export class FacilityService {
       descriptionOtherConvenience: 'Phòng ngủ đôi',
       numberOfFloors: 3,
       poolArea: 30,
+      facilityFree: 'Dọn phòng',
+
       img: 'https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg'
     },
     {
@@ -43,6 +46,7 @@ export class FacilityService {
       descriptionOtherConvenience: 'Phòng ngủ đơn',
       numberOfFloors: 3,
       poolArea: 30,
+      facilityFree: 'Dọn phòng',
       img: 'https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg'
     },
     {
@@ -56,6 +60,7 @@ export class FacilityService {
       descriptionOtherConvenience: 'Phòng rộng rãi,có điều hòa',
       numberOfFloors: 3,
       poolArea: 30,
+      facilityFree: 'Dọn phòng',
       img: 'https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg'
     },
     {
@@ -94,6 +99,11 @@ export class FacilityService {
       return facility.id !== id;
     });
   }
+
+  findById(id: number) {
+    return this.facilityList.find(facility => facility.id === id);
+  }
+
 
   constructor() {
   }

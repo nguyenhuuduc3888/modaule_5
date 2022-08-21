@@ -17,8 +17,8 @@ export class CreateContractComponent implements OnInit {
     id: new FormControl('', [Validators.required]),
     startDate: new FormControl('', [Validators.required]),
     endDate: new FormControl('', [Validators.required]),
-    deposit: new FormControl('', [Validators.required, Validators.min(1)]),
-    total: new FormControl('', [Validators.required, Validators.min(1)]),
+    deposit: new FormControl('', [Validators.required, Validators.pattern('/^\\d+$/')]),
+    total: new FormControl('', [Validators.required]),
     customer: new FormControl('', [Validators.required]),
     facility: new FormControl('', [Validators.required]),
   });

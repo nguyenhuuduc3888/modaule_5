@@ -13,85 +13,136 @@
 <div class="container-fluid">
   <div class="col-12 center">
     <div class="row" style="background-color: #21D192">
-      <div class="col-3 left-center" style="border-radius: 10px">
-        <div style="top: 20px">
-          <img style="border-radius: 10px" width="100%" height="200"
-               src="https://www.vnbooking.com/upload/article/furama_resort_danang4(1).jpg" alt="">
-        </div>
-        <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
-
-        <div style="top: 20px">
-          <img style="border-radius: 10px" width="100%" height="200"
-               src="https://du-lich.chudu24.com/f/m/1603/18/furama-resort-da-nang-1.jpg?w=800&h=500"
-               alt="">
-        </div>
-        <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
-
-        <div style="top: 20px">
-          <img style="border-radius: 10px" width="100%" height="200"
-               src="https://fantasea.vn/wp-content/uploads/2017/10/Furama-%C4%90%C3%A0-N%E1%BA%B5ng-Resort.jpg"
-               alt="">
-        </div>
-      </div>
 
       <!--card right-->
-      <div class="col-9 right-center" style="border-radius: 10px">
+      <div class="col-12 right-center" style="border-radius: 10px">
         <div class="container mb-2 text-white">
+          <form [formGroup]="facilityForm" (ngSubmit)="submit()" novalidate>
+            <div class="mb-3">
+              <input type="number" class="form-control form-control-lg" placeholder="Id"
+                     formControlName="id">
+            </div>
+            <p style="color: red"
+               *ngIf="!facilityForm.controls.id?.valid&&(facilityForm.controls.id?.dirty||facilityForm.controls.id?.touched)">
+              Không được để trống
+            </p>
+            <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
 
-          <form method="post" novalidate="novalidate">
             <div class="mb-3">
-              <input type="hidden" class="form-control">
+              <input type="text" class="form-control form-control-lg" placeholder="Tên"
+                     formControlName="name">
+            </div>
+            <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+
+            <div class="mb-3">
+              <input type="number" class="form-control form-control-lg " placeholder="Diện tích"
+                     formControlName="area">
+            </div>
+            <p style="color: red"
+               *ngIf="!facilityForm.controls.area?.valid&&
+               (facilityForm.controls.area?.dirty||facilityForm.controls.area?.touched)">
+              Không được để trống
+            </p>
+            <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+
+            <div class="mb-3">
+              <input type="number" class="form-control form-control-lg" placeholder="Giá Thuê"
+                     formControlName="cost">
+            </div>
+            <p style="color: red"
+               *ngIf="!facilityForm.controls.cost?.valid&&
+               (facilityForm.controls.cost?.dirty||facilityForm.controls.cost?.touched)">
+              Không được để trống
+            </p>
+            <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+            <div class="mb-3">
+              <input type="number" class="form-control form-control-lg" placeholder="Số người ở tối đa"
+                     formControlName="maxPeople">
             </div>
             <div class="mb-3">
-              <input type="text" class="form-control form-control-lg" placeholder="Tên">
+              <input type="text" class="form-control form-control-lg" placeholder="Thêm Ảnh"
+                     formControlName="img">
             </div>
+            <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
             <div class="mb-3">
-              <input type="number" class="form-control form-control-lg " placeholder="Diện tích">
-            </div>
-            <div class="mb-3">
-              <input type="number" class="form-control form-control-lg" placeholder="Giá Thuê">
-            </div>
-            <div class="mb-3">
-              <input type="number" class="form-control form-control-lg" placeholder="Số người ở tối đa">
-            </div>
-            <div class="mb-3">
-              <select class="form-control form-control-lg">
-                <option>Chọn kiểu thuê</option>
-                <option>Ngày</option>
-                <option>Tháng</option>
-                <option>Năm</option>
-                <option>Giờ</option>
+              <select class="form-control form-control-lg" formControlName="facilityType">
+                <option *ngFor="let item of facilityTypeList " [ngValue]="item" >{{item.name}}</option>
               </select>
             </div>
             <div class="mb-3">
               <select class="form-control form-control-lg"
                       (change)="getType($event.target.value)">
-                <option>Chọn Dịch Vụ</option>
-                <option>Villa</option>
-                <option>Room</option>
-                <option>House</option>
+                <option *ngFor="let item of facilityTypeList " [ngValue]="item" >{{item.name}}</option>
               </select>
             </div>
+            <p style="color: red"
+               *ngIf="!facilityForm.controls.facilityType?.valid&&
+               (facilityForm.controls.facilityType?.dirty||facilityForm.controls.facilityType?.touched)">
+              Không được để trống
+            </p>
+            <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+
             <div class="mb-3" id="standardRoom" *ngIf="type==='Villa'||type==='House'" type="hidden">
-              <input type="text" class="form-control form-control-lg" placeholder="Tiêu chuẩn phòng">
+              <input type="text" value="N/A" class="form-control form-control-lg" placeholder="Tiêu chuẩn phòng"
+                     formControlName="standardRoom">
             </div>
+            <p style="color: red"
+               *ngIf="!facilityForm.controls.standardRoom?.valid&&
+               (facilityForm.controls.standardRoom?.dirty||facilityForm.controls.standardRoom?.touched)">
+              Không được để trống
+            </p>
+            <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+
             <div class="mb-3" id="description" *ngIf="type==='Villa'||type==='House'" type="hidden">
-              <input type="text" class="form-control form-control-lg" placeholder="Tiện nghi">
+              <input type="text" value="N/A" class="form-control form-control-lg" placeholder="Tiện nghi"
+                     formControlName="descriptionOtherConvenience">
             </div>
+            <p style="color: red"
+               *ngIf="!facilityForm.controls.descriptionOtherConvenience?.valid&&
+               (facilityForm.controls.descriptionOtherConvenience?.dirty||facilityForm.controls.descriptionOtherConvenience?.touched)">
+              Không được để trống
+            </p>
+            <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+
             <div class="mb-3" id="poolArea" *ngIf="type==='Villa'" type="hidden">
-              <input type="number" class="form-control form-control-lg" placeholder="Diện tích hồ bơi">
+              <input type="number" value="1" class="form-control form-control-lg" placeholder="Diện tích hồ bơi"
+                     formControlName="poolArea">
             </div>
+            <p style="color: red"
+               *ngIf="!facilityForm.controls.poolArea?.valid&&
+               (facilityForm.controls.poolArea?.dirty||facilityForm.controls.poolArea?.touched)">
+              Không được để trống
+            </p>
+            <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+
             <div class="mb-3" id="numberFloor" *ngIf="type==='Villa'||type==='House'" type="hidden">
-              <input type="number" class="form-control form-control-lg" placeholder="Số tầng">
+              <input type="number" value="1" class="form-control form-control-lg" placeholder="Số tầng"
+                     formControlName="numberOfFloors">
             </div>
+            <p style="color: red"
+               *ngIf="!facilityForm.controls.numberOfFloors?.valid&&
+               (facilityForm.controls.numberOfFloors?.dirty||facilityForm.controls.numberOfFloors?.touched)">
+              Không được để trống
+            </p>
+            <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+
             <div class="mb-3" id="facilityFree" *ngIf="type==='Room'" type="hidden">
-              <input type="text" class="form-control form-control-lg" placeholder="Dịch vụ miễn phí">
+              <input type="text" value="N/A" class="form-control form-control-lg" placeholder="Dịch vụ miễn phí"
+                     formControlName="facilityFree">
             </div>
-            <input type="submit" value="Save" class="btn btn-success"/>
+            <p style="color: red"
+               *ngIf="!facilityForm.controls.facilityFree?.valid&&
+               (facilityForm.controls.facilityFree?.dirty||facilityForm.controls.facilityFree?.touched)">
+              Không được để trống
+            </p>
+            <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+
+            <input type="submit" value="Save" class="btn btn-success" [disabled]="!facilityForm.valid"/>
+            <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+
           </form>
         </div>
       </div>
-
     </div>
   </div>
 </div>

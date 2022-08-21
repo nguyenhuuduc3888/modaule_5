@@ -22,6 +22,8 @@
             <input class="form-control form-control-lg" placeholder="Id"
                    aria-label=".form-control-lg example" formControlName="id">
             <div>
+              <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+
               <img width="30 30" src="https://cdn-icons-png.flaticon.com/512/3233/3233515.png" alt="">
               <input class="form-check-input" type="radio" value="0" name="gender" formControlName="gender">Nữ
               <img width="30 30" src="https://cdn-icons-png.flaticon.com/512/3233/3233508.png" alt="">
@@ -36,6 +38,8 @@
                  *ngIf="!customerForm.controls.name?.valid&&(customerForm.controls.name?.dirty||customerForm.controls.name?.touched)">
               Tên phải viết hoa chữ cái đầu và không chứa số
             </div>
+            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+
             <div>
               <input class="form-control form-control-lg" type="text"
                      placeholder="Chứng minh nhân dân/Căn cước công dân"
@@ -46,6 +50,8 @@
             >
               Số CMND phải đúng định dạng 9 số hoặc 12 số (X là số 0-9)
             </div>
+            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+
             <div>
               <input class="form-control form-control-lg" type="text" placeholder="Số Điện Thoại"
                      aria-label=".form-control-lg example" formControlName="phoneNumber">
@@ -55,6 +61,8 @@
               Số điện thoại phải đúng định dạng 10 số bắt đầu là 090xxxxxxx hoặc 091xxxxxxx hoặc (84)+90xxxxxxx hoặc
               (84)+91xxxxxxx
             </div>
+            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+
             <div>
               <input class="form-control form-control-lg" type="text" placeholder="Email Cá Nhân"
                      aria-label=".form-control-lg example" formControlName="email">
@@ -63,15 +71,20 @@
                  *ngIf="!customerForm.controls.email?.valid&&(customerForm.controls.email?.dirty||customerForm.controls.email.touched)">
               Địa chỉ email phải đúng định dạng... abc@gmail.com
             </div>
+            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
 
             <div>
               <input class="form-control form-control-lg" type="text" placeholder="Địa chỉ"
                      aria-label=".form-control-lg example" formControlName="address">
             </div>
+            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+
             <div>
               <input class="form-control form-control-lg" type="date" placeholder="Nhập Ngày Sinh"
                      aria-label=".form-control-lg example" formControlName="birthday">
             </div>
+            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+
             <div>
               <select class="form-control form-control-lg" type="text" placeholder=".form-control-lg"
                       aria-label=".form-control-lg example" formControlName="customerType">
@@ -79,8 +92,11 @@
                 <option *ngFor="let item of customerTypeList" [ngValue]="item">{{item.name}}</option>
               </select>
             </div>
+
             <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
             <input [disabled]="!customerForm.valid" type="submit" value="Lưu" class="btn btn-success"/>
+            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+
           </form>
         </div>
       </div>

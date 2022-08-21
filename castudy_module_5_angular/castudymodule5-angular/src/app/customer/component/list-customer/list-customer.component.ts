@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Customer} from '../../model/customer';
 import {CustomerService} from '../../service/customer.service';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-list-customer',
@@ -11,8 +10,9 @@ import {Router} from '@angular/router';
 export class ListCustomerComponent implements OnInit {
   customerList: Customer[];
 
-  private idDelete: number;
-  private nameDelete: string;
+  idDelete: number;
+  nameDelete: string;
+  idCard: string;
 
   constructor(private customerService: CustomerService) {
   }
@@ -21,9 +21,10 @@ export class ListCustomerComponent implements OnInit {
     this.customerList = this.customerService.getAll();
   }
 
-  openDelete(customer: Customer ) {
+  openDelete(customer: Customer) {
     this.idDelete = customer.id;
     this.nameDelete = customer.name;
+    this.idCard = customer.idCard;
   }
 
   delete(id) {
