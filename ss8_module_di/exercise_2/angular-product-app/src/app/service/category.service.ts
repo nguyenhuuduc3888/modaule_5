@@ -15,19 +15,19 @@ export class CategoryService {
   constructor() {
   }
 
-  getAllCategory() {
+  getAllCategory(): Category[] {
     return this.listCategory;
   }
 
-  saveCategory(category) {
+  saveCategory(category): void {
     this.listCategory.push(category);
   }
 
-  finByIdCategory(id: number) {
+  finByIdCategory(id: number): Category {
     return this.listCategory.find(c => c.id === id);
   }
 
-  updateCategory(id: number, category: Category) {
+  updateCategory(id: number, category: Category): void {
     for (let i = 0; i < this.listCategory.length; i++) {
       if (this.listCategory[i].id === id) {
         this.listCategory[i] = category;
@@ -35,7 +35,7 @@ export class CategoryService {
     }
   }
 
-  deleteCategory(id: number) {
+  deleteCategory(id: number): void {
     this.listCategory = this.listCategory.filter(c => {
       return c.id !== id;
     });
