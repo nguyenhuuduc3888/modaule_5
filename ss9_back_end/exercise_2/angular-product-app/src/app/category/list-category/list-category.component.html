@@ -3,11 +3,11 @@
   <marquee style=" font-weight: bold" direction="left">Cửa hàng điện thoại uy tín nhất Việt Nam
   </marquee>
 </h5>
+<button class="btn btn-outline-danger" routerLink="/category/create">Thêm</button>
 <table class="table table-hover table-bordered">
   <tr>
     <th>Stt</th>
     <th>Tên</th>
-    <th>Thêm</th>
     <th>Sửa</th>
     <th>Xóa</th>
   </tr>
@@ -15,13 +15,35 @@
     <td>{{i + 1}}</td>
     <td>{{category.name}}</td>
     <td>
-      <button class="btn btn-dark btn-outline-danger" [routerLink]="['/category/create']">Thêm</button>
-    </td>
-    <td>
       <button class="btn btn-dark btn-outline-danger" [routerLink]="['/category/edit',category.id]">Sửa</button>
     </td>
     <td>
-      <button class="btn btn-dark btn-outline-danger" (click)="delete(category)">Xóa</button>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-dark btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete"
+              (click)="getDataDelete(category)">
+        Xóa
+      </button>
+
     </td>
   </tr>
 </table>
+
+<!-- Modal -->
+<div class="modal fade" id="delete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Xóa category</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn có muốn xóa {{nameDelete}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Trở về</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="delete(idDelete)">Xóa</button>
+      </div>
+    </div>
+  </div>
+</div>

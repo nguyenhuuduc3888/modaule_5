@@ -15,11 +15,7 @@ export class UpdateCategoryComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private categoryService: CategoryService, private router: Router) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
-      const category = this.getCategory(this.id);
-      this.categoryForm = new FormGroup({
-        id: new FormControl(category.id),
-        name: new FormControl(category.name),
-      });
+      this.getCategory(this.id);
     });
   }
 
@@ -27,12 +23,17 @@ export class UpdateCategoryComponent implements OnInit {
   }
 
   getCategory(id: number) {
-    return this.categoryService.finByIdCategory(id);
+    return this.categoryService.finByIdCategory(id).subscribe(category => {
+      this.categoryForm = new FormGroup({
+        name: new FormControl(category.name),
+      });
+    });
   }
 
   update(id: number) {
     const category = this.categoryForm.value;
-    this.categoryService.updateCategory(id, category);
-    this.router.navigate(['/category/list']);
+    this.categoryService.updateCategory(id, category).subscribe(value => {
+      this.router.navigate(['/category/list']);
+    });
   }
 }

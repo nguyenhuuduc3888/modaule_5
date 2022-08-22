@@ -1,0 +1,44 @@
+{
+  "category": [
+    {
+      "id": 1,
+      "name": "Laptop"
+    },
+    {
+      "name": "Điện Thoại",
+      "id": 2
+    },
+    {
+      "name": "Màn hình Vip k",
+      "id": 3
+    },
+    {
+      "name": "CC",
+      "id": 4
+    }
+  ],
+  "product": [
+    {
+      "id": 1,
+      "name": "LG 30 inch",
+      "price": "4300000",
+      "description": "New 100%",
+      "img": "https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg",
+      "category": {
+        "id": 3,
+        "name": "Màn hình"
+      }
+    },
+    {
+      "name": "Xiaomi",
+      "price": "2500000",
+      "description": "New 100%",
+      "img": "https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg",
+      "category": {
+        "name": "Điện Thoại",
+        "id": 2
+      },
+      "id": 2
+    }
+  ]
+}

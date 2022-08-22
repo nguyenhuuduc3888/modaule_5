@@ -22,9 +22,10 @@ export class CreateCategoryComponent implements OnInit {
 
   submit() {
     const category = this.categoryForm.value;
-    this.categoryService.saveCategory(category);
-    this.categoryForm.reset();
-    this.router.navigate(['/category/list']);
+    this.categoryService.saveCategory(category).subscribe(() => {
+      this.categoryForm.reset();
+      this.router.navigate(['/category/list']);
+    });
   }
 
 }

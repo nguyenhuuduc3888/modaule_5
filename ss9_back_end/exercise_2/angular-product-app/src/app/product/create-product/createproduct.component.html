@@ -1,23 +1,25 @@
-<form [formGroup]="productForm" (ngSubmit)="submit()">
-    <legend>Thêm mới sản phẩm</legend>
-    <div class="mb-3">
-      <label class="form-label">Nhập Id</label>
-      <input type="number" class="form-control" formControlName="id">
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Nhập Tên</label>
-      <input type="text" class="form-control" formControlName="name">
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Nhập Giá</label>
-      <input type="text" class="form-control" formControlName="price">
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Nhập Mô Tả</label>
-      <input type="text" class="form-control" formControlName="description">
-    </div>
-    <div class="mb-3">
-      <input type="hidden" class="form-control" formControlName="img">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+<form [formGroup]="productForm" (ngSubmit)="submit()" *ngIf="productForm">
+  <legend>Thêm mới sản phẩm</legend>
+  <div class="mb-3">
+    <label class="form-label">Danh mục</label>
+    <select class="form-control form-control-lg" formControlName="category"  >
+      <option *ngFor="let category of listCategory" [ngValue]="category"> {{category.name}}</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Nhập Tên</label>
+    <input type="text" class="form-control" formControlName="name">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Nhập Giá</label>
+    <input type="text" class="form-control" formControlName="price">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Nhập Mô Tả</label>
+    <input type="text" class="form-control" formControlName="description">
+  </div>
+  <div class="mb-3">
+    <input type="hidden" class="form-control" formControlName="img">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>

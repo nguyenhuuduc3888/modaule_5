@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "abgular-product-app": {
+    "angular-todo-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/abgular-product-app",
+            "outputPath": "dist/angular-todo-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,12 +24,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "D:\\Module_5\\ss9_back_end\\exercise_2\\angular-product-app\\node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"
+              "src/styles.css"
             ],
-            "scripts": [
-              "D:\\Module_5\\ss9_back_end\\exercise_2\\angular-product-app\\node_modules\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -65,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "abgular-product-app:build"
+            "browserTarget": "angular-todo-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "abgular-product-app:build:production"
+              "browserTarget": "angular-todo-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "abgular-product-app:build"
+            "browserTarget": "angular-todo-app:build"
           }
         },
         "test": {
@@ -113,19 +110,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "abgular-product-app:serve"
+            "devServerTarget": "angular-todo-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "abgular-product-app:serve:production"
+              "devServerTarget": "angular-todo-app:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "abgular-product-app",
+  "defaultProject": "angular-todo-app",
   "cli": {
-    "analytics": "515acd96-e776-4cfa-960d-947f030db342"
+    "analytics": "27bd32c4-3dc1-4db0-9ca2-8f67037ff3a6"
   }
 }
