@@ -8,7 +8,7 @@ import {CustomerService} from '../../service/customer.service';
   styleUrls: ['./list-customer.component.css']
 })
 export class ListCustomerComponent implements OnInit {
-  customerList: Customer[];
+  customerList: Customer[] = [];
 
   idDelete: number;
   nameDelete: string;
@@ -18,7 +18,13 @@ export class ListCustomerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.customerList = this.customerService.getAll();
+    this.getAll();
+  }
+
+  getAll() {
+    this.customerService.getAll().subscribe(customer => {
+      this.customerList = customer;
+    });
   }
 
   openDelete(customer: Customer) {
@@ -28,7 +34,8 @@ export class ListCustomerComponent implements OnInit {
   }
 
   delete(id) {
-    this.customerService.delete(id);
-    this.ngOnInit();
+    this.customerService.delete(id).subscribe(next => {
+      this.ngOnInit();
+    });
   }
 }

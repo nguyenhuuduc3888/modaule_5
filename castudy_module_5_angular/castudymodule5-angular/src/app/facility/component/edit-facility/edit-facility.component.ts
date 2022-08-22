@@ -19,8 +19,19 @@ export class EditFacilityComponent implements OnInit {
 
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
-      const facility = this.getFacility(this.id);
-      // @ts-ignore
+      this.getFacility(this.id);
+    });
+  }
+
+  type = '';
+  facilityTypeList: FacilityType [];
+
+  getType(type) {
+    this.type = type;
+  }
+
+  private getFacility(id: number) {
+    return this.facilityService.findById(id).subscribe(facility => {
       this.facilityForm = new FormGroup({
         id: new FormControl(facility.id, [Validators.required]),
         name: new FormControl(facility.name, [Validators.required, Validators.pattern(new RegExp(/^(([^\u0000-\u007F]+)|[a-z]|\s)+$/gi))]),
@@ -38,25 +49,21 @@ export class EditFacilityComponent implements OnInit {
     });
   }
 
-  type = '';
-  facilityTypeList: FacilityType[];
-
-  getType(type) {
-    this.type = type;
-  }
-
-  private getFacility(id: number) {
-    return this.facilityService.findById(id);
-  }
-
   ngOnInit(): void {
-    this.facilityTypeList = this.facilityTypeService.getAll();
+    this.getAll();
+  }
+
+  getAll() {
+    return this.facilityTypeService.getAll().subscribe(type => {
+      this.facilityTypeList = type;
+    });
   }
 
   update(id: number) {
     const facility = this.facilityForm.value;
-    this.facilityService.update(id, facility);
-    this.router.navigate(['/facility/list']);
+    this.facilityService.update(id, facility).subscribe(next => {
+      this.router.navigate(['/facility/list']);
+    });
   }
 
 }

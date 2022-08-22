@@ -15,7 +15,7 @@
             <div>
               <label><h1 style="color:  white">Thêm mới khách hàng</h1></label>
             </div>
-            <input class="form-control form-control-lg" type="number" placeholder="Id"
+            <input class="form-control form-control-lg" type="hidden" placeholder="Id"
                    aria-label=".form-control-lg example" formControlName="id">
             <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
 
@@ -94,7 +94,6 @@
             <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
             <button type="submit" class=" btn btn-success" [disabled]="!customerForm.valid " >Lưu</button>
             <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
-
           </form>
         </div>
       </div>

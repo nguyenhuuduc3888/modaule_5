@@ -16,9 +16,9 @@
       <!--card right-->
       <div class="col-12 right-center" style="border-radius: 10px">
         <div class="container mb-2 text-white">
-          <form [formGroup]="facilityForm" (ngSubmit)="submit()" novalidate>
+          <form [formGroup]="facilityForm"  novalidate>
             <div class="mb-3">
-              <input type="number" class="form-control form-control-lg" placeholder="Id"
+              <input type="hidden" class="form-control form-control-lg" placeholder="Id"
                      formControlName="id">
             </div>
             <p style="color: red"
@@ -138,7 +138,7 @@
             </p>
             <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
 
-            <input type="submit" value="Save" class="btn btn-success" [disabled]="!facilityForm.valid"/>
+            <input type="submit" value="Save" class="btn btn-success" [disabled]="!facilityForm.valid" (click)="submit()"/>
             <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
 
           </form>

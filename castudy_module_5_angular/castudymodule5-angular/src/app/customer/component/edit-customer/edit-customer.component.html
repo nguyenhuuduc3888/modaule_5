@@ -8,7 +8,7 @@
     </marquee>
   </h5>
   <div class="col-12 center">
-      <div class="row"  style="background-color: #21D192">
+    <div class="row" style="background-color: #21D192">
 
 
       <!--Giữa-->
@@ -17,8 +17,8 @@
           <label>
             <h1 style="color:  white">Sửa Thông Tin Khách Hàng</h1>
           </label>
-          <form [formGroup]="customerForm" (ngSubmit)="update(id)" novalidate>
-            <input class="form-control form-control-lg" placeholder="Id"
+          <form [formGroup]="customerForm" *ngIf="customerForm" novalidate>
+            <input class="form-control form-control-lg" placeholder="Id" type="hidden"
                    aria-label=".form-control-lg example" formControlName="id">
             <div>
               <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
@@ -85,15 +85,15 @@
             <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
 
             <div>
-              <select class="form-control form-control-lg" type="text" placeholder=".form-control-lg"
-                      aria-label=".form-control-lg example" formControlName="customerType">
-                <option [ngValue]="null" disabled>Chọn Loại Khách</option>
+              <select class="form-control form-control-lg" type="text"
+                      aria-label=".form-control-lg example" formControlName="customerType" [compareWith]="compare">
                 <option *ngFor="let item of customerTypeList" [ngValue]="item">{{item.name}}</option>
               </select>
             </div>
 
             <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
-            <input [disabled]="!customerForm.valid" type="submit" value="Lưu" class="btn btn-success"/>
+            <input [disabled]="!customerForm.valid" type="submit" value="Lưu" class="btn btn-success"
+                   (click)="update(id)"/>
             <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
 
           </form>

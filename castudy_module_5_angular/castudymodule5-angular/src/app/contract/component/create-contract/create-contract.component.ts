@@ -23,7 +23,6 @@ export class CreateContractComponent implements OnInit {
     facility: new FormControl('', [Validators.required]),
   });
 
-
   // tslint:disable-next-line:max-line-length
   constructor(private router: Router, private contractService: ContractService, private customerService: CustomerService, private facilityService: FacilityService) {
   }
@@ -33,15 +32,27 @@ export class CreateContractComponent implements OnInit {
 
   submit() {
     const contract = this.contractForm.value;
-    this.contractService.save(contract);
-    this.contractForm.reset();
-    this.router.navigate(['/contract/list']);
-
+    this.contractService.save(contract).subscribe(next => {
+      this.contractForm.reset();
+      this.router.navigate(['/contract/list']);
+    });
   }
 
   ngOnInit(): void {
-    this.customerList = this.customerService.getAll();
-    this.facilityList = this.facilityService.getAll();
+    this.getAllCustomer();
+    this.getAllFacility();
+
   }
 
+  getAllCustomer() {
+    return this.customerService.getAll().subscribe(next => {
+      this.customerList = next;
+    });
+  }
+
+  getAllFacility() {
+    return this.facilityService.getAll().subscribe(next => {
+      this.facilityList = next;
+    });
+  }
 }

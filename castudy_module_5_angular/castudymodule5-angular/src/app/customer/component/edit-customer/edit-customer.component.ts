@@ -13,11 +13,19 @@ import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 export class EditCustomerComponent implements OnInit {
   customerForm: FormGroup;
   id: number;
+
   constructor(private activatedRoute: ActivatedRoute, private customerService: CustomerService,
               private customerTypeService: CustomerTypeService, private router: Router) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
-      const customer = this.getCustomer(this.id);
+      this.getCustomer(this.id);
+    });
+  }
+
+  customerTypeList: CustomerType[];
+
+  private getCustomer(id: number) {
+    return this.customerService.findById(id).subscribe(customer => {
       this.customerForm = new FormGroup({
         id: new FormControl(customer.id),
         // tslint:disable-next-line:max-line-length
@@ -32,24 +40,28 @@ export class EditCustomerComponent implements OnInit {
         phoneNumber: new FormControl(customer.phoneNumber, [Validators.required, Validators.pattern('^(090|091|8490|8491)+([0-9]{7})$')]),
         email: new FormControl(customer.email, [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
         address: new FormControl(customer.address)
-
       });
     });
   }
 
-  customerTypeList: CustomerType[];
-
   ngOnInit(): void {
-    this.customerTypeList = this.customerTypeService.getALL();
+    this.getAllCustomerType();
   }
 
-  private getCustomer(id: number) {
-    return this.customerService.findById(id);
+  getAllCustomerType() {
+    return this.customerTypeService.getAll().subscribe(customerType => {
+      this.customerTypeList = customerType;
+    });
+  }
+
+  compare(value, option): boolean {
+    return value.id === option.id;
   }
 
   update(id: number) {
     const customer = this.customerForm.value;
-    this.customerService.update(id, customer);
-    this.router.navigate(['/customer/list']);
+    this.customerService.update(id, customer).subscribe(next => {
+      this.router.navigate(['/customer/list']);
+    });
   }
 }

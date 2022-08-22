@@ -3,10 +3,10 @@ import {Component, NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import {HttpClientModule} from '@angular/common/http';
 import {HeaderComponent} from './header-footer/header/header.component';
 import {FooterComponent} from './header-footer/footer/footer.component';
-import {FormsModule} from '@angular/forms';
-import {HomeComponent} from './home/component/home.component';
+
 
 @NgModule({
   declarations: [
@@ -17,6 +17,7 @@ import {HomeComponent} from './home/component/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

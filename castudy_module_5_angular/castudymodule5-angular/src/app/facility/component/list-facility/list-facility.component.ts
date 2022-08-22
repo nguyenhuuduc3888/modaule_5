@@ -9,7 +9,7 @@ import {FacilityType} from '../../model/facility-type';
   styleUrls: ['./list-facility.component.css']
 })
 export class ListFacilityComponent implements OnInit {
-  facilityList: Facility[];
+  facilityList: Facility [];
   idDelete: number;
   img: string;
   name: string;
@@ -20,7 +20,13 @@ export class ListFacilityComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.facilityList = this.facilityService.getAll();
+    this.getAll();
+  }
+
+  getAll() {
+    return this.facilityService.getAll().subscribe(next => {
+      this.facilityList = next;
+    });
   }
 
   openDelete(facility: Facility) {
@@ -32,7 +38,8 @@ export class ListFacilityComponent implements OnInit {
   }
 
   delete(id) {
-    this.facilityService.delete(id);
-    this.ngOnInit();
+    this.facilityService.delete(id).subscribe(next => {
+      this.ngOnInit();
+    });
   }
 }

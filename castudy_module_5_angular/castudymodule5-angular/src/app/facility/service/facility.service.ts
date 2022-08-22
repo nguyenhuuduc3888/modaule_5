@@ -1,110 +1,35 @@
 import {Injectable} from '@angular/core';
 import {Facility} from '../model/facility';
+import {environment} from '../../../environments/environment';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+
+const API_URL_FACILITY = `${environment.apiUrlFacility}`;
 
 @Injectable({
   providedIn: 'root'
 })
 export class FacilityService {
-  facilityList: Facility[] = [
-    {
-      id: 1,
-      facilityType: {id: 1, name: 'Villa'},
-      name: 'View biển',
-      area: 100,
-      cost: 15000000,
-      maxPeople: 8,
-      standardRoom: 'Phòng Đơn,',
-      descriptionOtherConvenience: 'Phòng rộng rãi,có điều hòa',
-      numberOfFloors: 3,
-      poolArea: 30,
-      facilityFree: 'Dọn phòng',
-      img: 'https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg'
-    },
-    {
-      id: 2,
-      facilityType: {id: 2, name: 'House'},
-      name: 'Khu cao cấp',
-      area: 45,
-      cost: 8000000,
-      maxPeople: 5,
-      standardRoom: 'Phòng Đơn,',
-      descriptionOtherConvenience: 'Phòng ngủ đôi',
-      numberOfFloors: 3,
-      poolArea: 30,
-      facilityFree: 'Dọn phòng',
-
-      img: 'https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg'
-    },
-    {
-      id: 3,
-      facilityType: {id: 3, name: 'Room'},
-      name: 'Nhà nguyên bản',
-      area: 35,
-      cost: 5000000,
-      maxPeople: 5,
-      standardRoom: 'Phòng Đơn,',
-      descriptionOtherConvenience: 'Phòng ngủ đơn',
-      numberOfFloors: 3,
-      poolArea: 30,
-      facilityFree: 'Dọn phòng',
-      img: 'https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg'
-    },
-    {
-      id: 4,
-      facilityType: {id: 1, name: 'Villa'},
-      name: 'View Núi',
-      area: 30,
-      cost: 3500000,
-      maxPeople: 5,
-      standardRoom: 'Phòng Đôi,',
-      descriptionOtherConvenience: 'Phòng rộng rãi,có điều hòa',
-      numberOfFloors: 3,
-      poolArea: 30,
-      facilityFree: 'Dọn phòng',
-      img: 'https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg'
-    },
-    {
-      id: 5,
-      facilityType: {id: 1, name: 'Villa'},
-      name: 'View gió mát',
-      area: 30,
-      cost: 6000000,
-      maxPeople: 5,
-      standardRoom: 'Phòng Đơn,',
-      descriptionOtherConvenience: 'Phòng rộng rãi,có điều hòa',
-      numberOfFloors: 3,
-      poolArea: 30,
-      img: 'https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg'
-    },
-  ];
-
-  getAll() {
-    return this.facilityList;
+  constructor(private httpClient: HttpClient) {
   }
 
-  save(facility) {
-    this.facilityList.push(facility);
+  getAll(): Observable<Facility[]> {
+    return this.httpClient.get<Facility[]>(API_URL_FACILITY);
   }
 
-  update(id: number, facility: Facility) {
-    for (let i = 0; i < this.facilityList.length; i++) {
-      if (this.facilityList[i].id === id) {
-        this.facilityList[i] = facility;
-      }
-    }
+  save(facility): Observable<Facility> {
+    return this.httpClient.post<Facility>(API_URL_FACILITY, facility);
   }
 
-  delete(id: number) {
-    this.facilityList = this.facilityList.filter(facility => {
-      return facility.id !== id;
-    });
+  update(id: number, facility: Facility): Observable<Facility> {
+    return this.httpClient.put<Facility>(`${API_URL_FACILITY}/${id}`, facility);
   }
 
-  findById(id: number) {
-    return this.facilityList.find(facility => facility.id === id);
+  delete(id: number): Observable<Facility> {
+    return this.httpClient.delete<Facility>(`${API_URL_FACILITY}/${id}`);
   }
 
-
-  constructor() {
+  findById(id: number): Observable<Facility> {
+    return this.httpClient.get<Facility>(`${API_URL_FACILITY}/${id}`);
   }
 }

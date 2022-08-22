@@ -35,13 +35,20 @@ export class CreateCustomerComponent implements OnInit {
 
   submit() {
     const customer = this.customerForm.value;
-    this.customerService.save(customer);
-    this.customerForm.reset();
-    this.router.navigate(['/customer/list']);
+    this.customerService.save(customer).subscribe(next => {
+      this.customerForm.reset();
+      this.router.navigate(['/customer/list']);
+    });
   }
 
-  ngOnInit(): void {
-    this.customerTypeList = this.customerTypeService.getALL();
+  ngOnInit() {
+    this.getAllCustomerType();
+  }
+
+  getAllCustomerType() {
+   return  this.customerTypeService.getAll().subscribe(type => {
+      this.customerTypeList = type;
+    });
   }
 
 }

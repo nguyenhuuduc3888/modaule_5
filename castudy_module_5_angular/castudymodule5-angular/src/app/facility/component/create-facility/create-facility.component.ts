@@ -32,21 +32,29 @@ export class CreateFacilityComponent implements OnInit {
   }
 
   type = '';
-  facilityTypeList: FacilityType[];
+  facilityTypeList: FacilityType[] ;
 
   getType(type) {
     this.type = type;
   }
 
   ngOnInit(): void {
-    this.facilityTypeList = this.facilityTypeService.getAll();
+    this.getAll();
+  }
+
+  getAll() {
+    return this.facilityTypeService.getAll().subscribe(facilityType => {
+      this.facilityTypeList = facilityType;
+    });
   }
 
   submit() {
     const facility = this.facilityForm.value;
-    this.facilityService.save(facility);
-    this.facilityForm.reset();
-    this.router.navigate(['/facility/list']);
+    this.facilityService.save(facility).subscribe(next => {
+      this.facilityForm.reset();
+      this.router.navigate(['/facility/list']);
+    });
+
   }
 
 }

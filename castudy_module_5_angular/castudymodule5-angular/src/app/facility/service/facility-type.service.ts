@@ -1,21 +1,20 @@
 import {Injectable} from '@angular/core';
+import {environment} from '../../../environments/environment';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 import {FacilityType} from '../model/facility-type';
+
+const API_URL_FACILITYTYPE = `${environment.apiUrlRentType}`;
 
 @Injectable({
   providedIn: 'root'
 })
 export class FacilityTypeService {
 
-  facilityType: FacilityType[] = [
-    {id: 1, name: 'Villa'},
-    {id: 2, name: 'House'},
-    {id: 3, name: 'Room'},
-  ];
-
-  getAll() {
-    return this.facilityType;
+  constructor(private httpClient: HttpClient) {
   }
 
-  constructor() {
+  getAll(): Observable<FacilityType[]> {
+    return this.httpClient.get<FacilityType[]>(API_URL_FACILITYTYPE);
   }
-}
+  }
