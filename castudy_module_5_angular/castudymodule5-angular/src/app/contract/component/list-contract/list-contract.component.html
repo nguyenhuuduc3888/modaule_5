@@ -1,4 +1,3 @@
-<app-header></app-header>
 <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
 <h5>
   <marquee style="color: white"> Liên hệ booking : 0944333333</marquee>
@@ -14,24 +13,16 @@
     <div class="row" style="background-color: #21D192">
       <div class="col-3 left-center" style="border-radius: 10px">
         <div>
-          <img style="border-radius: 10px" width="100%" height="200"
-               src="https://cdn.thuvienphapluat.vn/phap-luat/2022/3/10/HN/khuyen-mai-hang-hoa.png" alt="">
+          <marquee behavior="right" direction=""> <img style="border-radius: 10px" width="100%" height="200"
+                                                       src="https://cdn.thuvienphapluat.vn/phap-luat/2022/3/10/HN/khuyen-mai-hang-hoa.png"
+                                                       alt=""></marquee>
         </div>
 
         <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
 
         <div>
-          <img style="border-radius: 10px" width="100%" height="200"
-               src="https://cdn.luatvietnam.vn/uploaded/Images/Original/2021/03/08/mau-hop-dong-thue-nha_0803151753.png"
-               alt="">
-
-        </div>
-        <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
-
-        <div>
-          <img style="border-radius: 10px" width="100%" height="200"
-               src="https://media.vietravel.com/images/news/xuan-du-lich-khuyen-mai.jpg"
-               alt="">
+          <marquee behavior="" direction="left">  <h5 style="color: white">Ưu đãi siêu lớn trong tháng 8</h5></marquee>
+          <marquee behavior="" direction="left">  <h5 style="color: black">Booking ngay nhận ngàn ưu đãi</h5></marquee>
         </div>
       </div>
 
@@ -61,7 +52,7 @@
             <td>{{contract.facility.name}}</td>
             <td>{{contract.total}}</td>
             <td>
-              <button [routerLink]="'/create-contract'" type="button" class="btn btn-outline-success"
+              <button [routerLink]="'/contract/create'" type="button" class="btn btn-outline-success"
                       data-bs-toggle="modal"
                       :data-bs-target="'#staticBackdrop' ">
                 <img width="25 25" src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="">
@@ -119,4 +110,3 @@
     </div>
   </div>
 </div>
-<app-footer></app-footer>

@@ -1,4 +1,4 @@
-<app-header></app-header>
+
 <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
 <h5>
   <marquee style="color: white"> Liên hệ booking : 0944333333</marquee>
@@ -77,7 +77,7 @@
             <div>
               <select class="form-control form-control-lg" type="text"
                       aria-label=".form-control-lg example" formControlName="customer">
-                <option [ngValue]="null" disabled>Chọn tên khách</option>
+                <option value="" disabled>Chọn tên khách</option>
                 <option *ngFor="let item of customerList" [ngValue]="item">{{item.name}}</option>
               </select>
             </div>
@@ -86,7 +86,7 @@
             <div>
               <select class="form-control form-control-lg" type="text" placeholder=".form-control-lg"
                       aria-label=".form-control-lg example" formControlName="facility">
-                <option [ngValue]="null" disabled>Chọn tên dịch vụ</option>
+                <option value="" disabled>Chọn tên dịch vụ</option>
                 <option *ngFor="let item of facilityList" [ngValue]="item">{{item.name}}</option>
               </select>
             </div>
@@ -101,4 +101,3 @@
     </div>
   </div>
 </div>
-<app-footer></app-footer>

@@ -54,9 +54,9 @@ export class EditFacilityComponent implements OnInit {
   }
 
   update(id: number) {
-    const customer = this.facilityForm.value;
-    this.facilityService.update(id, customer);
-    this.router.navigate(['/list-facility']);
+    const facility = this.facilityForm.value;
+    this.facilityService.update(id, facility);
+    this.router.navigate(['/facility/list']);
   }
 
 }

@@ -1,4 +1,3 @@
-<app-header></app-header>
 <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
 <div class="container-fluid">
   <div class="row">
@@ -15,7 +14,7 @@
       <h1 style="color:  white">Danh Sách Khách Hàng</h1>
     </div>
     <div class="col-1">
-      <button class="x btn btn-outline-success" [routerLink]="'/create-customer'">
+      <button class="x btn btn-outline-success" [routerLink]="'/customer/create'">
         <a style="text-decoration: none">
           <img width="30 30" src="https://cdn-icons-png.flaticon.com/512/1387/1387940.png"></a>
       </button>
@@ -60,7 +59,7 @@
             <td>
               <!--nút edit-->
               <button type="button" class="btn btn-outline-success">
-                <a style="text-decoration: none" [routerLink]="['/edit-customer',customer.id]">Sửa</a>
+                <a style="text-decoration: none" [routerLink]="['/customer/edit',customer.id]">Sửa</a>
               </button>
             </td>
             <td>
@@ -102,4 +101,3 @@
     </div>
   </div>
 </div>
-<app-footer></app-footer>

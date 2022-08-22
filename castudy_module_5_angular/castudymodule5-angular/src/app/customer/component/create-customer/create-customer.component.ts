@@ -37,7 +37,7 @@ export class CreateCustomerComponent implements OnInit {
     const customer = this.customerForm.value;
     this.customerService.save(customer);
     this.customerForm.reset();
-    this.router.navigate(['/list-customer']);
+    this.router.navigate(['/customer/list']);
   }
 
   ngOnInit(): void {

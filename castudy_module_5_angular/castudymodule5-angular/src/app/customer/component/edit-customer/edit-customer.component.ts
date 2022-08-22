@@ -50,6 +50,6 @@ export class EditCustomerComponent implements OnInit {
   update(id: number) {
     const customer = this.customerForm.value;
     this.customerService.update(id, customer);
-    this.router.navigate(['/list-customer']);
+    this.router.navigate(['/customer/list']);
   }
 }
