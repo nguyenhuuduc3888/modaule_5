@@ -14,11 +14,11 @@ export class DictionaryService {
   constructor() {
   }
 
-  getAllDictionary() {
+  getAllDictionary(): Dictionary[] {
     return this.listDictionary;
   }
 
-  finByIdDetail(id: number) {
+  finByIdDetail(id: number): Dictionary {
     return this.listDictionary.find(detail => detail.id === id);
   }
 }
