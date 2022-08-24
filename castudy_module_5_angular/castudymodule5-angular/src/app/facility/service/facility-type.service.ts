@@ -17,4 +17,9 @@ export class FacilityTypeService {
   getAll(): Observable<FacilityType[]> {
     return this.httpClient.get<FacilityType[]>(API_URL_FACILITYTYPE);
   }
+
+  findById(id: number): Observable<FacilityType> {
+    return this.httpClient.get<FacilityType>(`${API_URL_FACILITYTYPE}/${id}`);
   }
+
+}

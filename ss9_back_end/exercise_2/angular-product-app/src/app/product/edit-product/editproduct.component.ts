@@ -41,6 +41,10 @@ export class EditproductComponent implements OnInit {
     });
   }
 
+  compareFn(value, option): boolean {
+    return value.id === option.id;
+  }
+
   update(id: number) {
     const product = this.productForm.value;
     this.productService.updateProduct(id, product).subscribe(value => {

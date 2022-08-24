@@ -1,0 +1,110 @@
+<div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+<div class="container-fluid">
+  <div class="row">
+    <h5>
+      <marquee style="color: white"> Liên hệ booking : 0944333333</marquee>
+
+      <marquee style=" font-weight: bold" direction="left"> KHU NGHỈ DƯỠNG ĐẲNG CẤP THẾ GIỚI, FURAMA ĐÀ NẴNG, NỔI TIẾNG
+        LÀ
+        KHU NGHỈ DƯỠNG ẨM THỰC TẠI VIỆT
+        NAM.
+      </marquee>
+    </h5>
+    <div class="col-6">
+      <h1 style="color:  white">Danh Sách Khách Hàng</h1>
+    </div>
+    <div class="col-3">
+      <button class="x btn btn-outline-success" [routerLink]="'/customer/create'">
+        <a style="text-decoration: none">
+          <img width="30 30" src="https://cdn-icons-png.flaticon.com/512/1387/1387940.png"></a>
+      </button>
+    </div>
+    <div class="col-3 d-flex">
+      <input type="search" class="form-control" placeholder="Nhập tên cần tìm" [(ngModel)]="searchName">
+      <button class=" btn btn-outline-success" (click)="search($event.target['value'])"> Tìm</button>
+    </div>
+  </div>
+  <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+
+  <div class="col-12 center">
+    <div class="row" style="background-color: #21D192">
+
+      <!--Table-->
+      <div class="col-12 right-center" style="border-radius: 10px;padding-top: 20px">
+
+        <table class="table  table-responsive table-bordered" style="font-size: 15px;color: white;border: navajowhite">
+          <thead>
+          <tr>
+            <th>Stt</th>
+            <th>Tên</th>
+            <th>Ngày Sinh</th>
+            <th>Giới Tính</th>
+            <th>Chứng minh thư</th>
+            <th>Số Điện Thoại</th>
+            <th>Email</th>
+            <th>Địa Chỉ</th>
+            <th>Kiểu Khách</th>
+            <th>Sửa</th>
+            <th>Xóa</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let customer of customerList | paginate:{itemsPerPage:4,currentPage:page};index as i ">
+            <td>{{i + 1}}</td>
+            <td>{{customer.name}}</td>
+            <td>{{customer.dateOfBirth|date:'dd-MM-yyyy'}}</td>
+            <td *ngIf="customer.gender ==0">Nữ</td>
+            <td *ngIf="customer.gender ==1">Nam</td>
+            <td>{{customer.idCard}}</td>
+            <td>{{customer.phone}}</td>
+            <td>{{customer.email}}</td>
+            <td>{{customer.address}}</td>
+            <td>{{customer.customerType.name}}</td>
+            <td>
+              <!--nút edit-->
+              <button type="button" class="btn btn-outline-success">
+                <a style="text-decoration: none" [routerLink]="['/customer/edit',customer.id]">Sửa</a>
+              </button>
+            </td>
+            <td>
+              <!--nút xóa "-->
+              <button type="button" class="btn btn-outline-success"
+                      data-bs-toggle="modal" data-bs-target="#exampleModal"
+                      (click)="openDelete(customer)">
+                Xóa
+              </button>
+              <!-- Modal -->
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+        <pagination-controls (pageChange)="page=$event"></pagination-controls>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Xóa Khách Hàng</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="color: red">
+        <H5>Bạn có muốn xóa khách hàng tên:{{nameDelete}} </H5>
+        <br>
+        <H5>Chứng minh nhân dân số: {{idCard}}</H5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Không
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="delete(idDelete)">Có</button>
+      </div>
+    </div>
+  </div>
+</div>

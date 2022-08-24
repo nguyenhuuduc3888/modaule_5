@@ -4,6 +4,7 @@ import {CustomerType} from '../../model/customer-type';
 import {CustomerService} from '../../service/customer.service';
 import {CustomerTypeService} from '../../service/customer-type.service';
 import {Router} from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-customer',
@@ -12,7 +13,7 @@ import {Router} from '@angular/router';
 })
 export class CreateCustomerComponent implements OnInit {
 
-  constructor(private customerService: CustomerService, private customerTypeService: CustomerTypeService, private router: Router) {
+  constructor(private toastrService: ToastrService, private customerService: CustomerService, private customerTypeService: CustomerTypeService, private router: Router) {
   }
 
   customerForm = new FormGroup({
@@ -38,6 +39,9 @@ export class CreateCustomerComponent implements OnInit {
     this.customerService.save(customer).subscribe(next => {
       this.customerForm.reset();
       this.router.navigate(['/customer/list']);
+      this.toastrService.success('Them ok', ' ', {
+        timeOut: 1500, progressBar: false
+      });
     });
   }
 
@@ -46,7 +50,7 @@ export class CreateCustomerComponent implements OnInit {
   }
 
   getAllCustomerType() {
-   return  this.customerTypeService.getAll().subscribe(type => {
+    return this.customerTypeService.getAll().subscribe(type => {
       this.customerTypeList = type;
     });
   }

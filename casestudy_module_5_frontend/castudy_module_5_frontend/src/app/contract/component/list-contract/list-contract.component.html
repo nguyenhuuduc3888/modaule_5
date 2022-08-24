@@ -1,0 +1,112 @@
+<div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+<h5>
+  <marquee style="color: white"> Liên hệ booking : 0944333333</marquee>
+
+  <marquee style=" font-weight: bold" direction="left"> KHU NGHỈ DƯỠNG ĐẲNG CẤP THẾ GIỚI, FURAMA ĐÀ NẴNG, NỔI TIẾNG LÀ
+    KHU NGHỈ DƯỠNG ẨM THỰC TẠI VIỆT
+    NAM.
+  </marquee>
+</h5>
+<h1 style="color:  white">Danh Sách Hợp Đồng</h1>
+<div class="container-fluid">
+  <div class="col-12 center">
+    <div class="row" style="background-color: #21D192">
+      <div class="col-3 left-center" style="border-radius: 10px">
+        <div>
+          <marquee behavior="right" direction=""> <img style="border-radius: 10px" width="100%" height="200"
+                                                       src="https://cdn.thuvienphapluat.vn/phap-luat/2022/3/10/HN/khuyen-mai-hang-hoa.png"
+                                                       alt=""></marquee>
+        </div>
+
+        <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+
+        <div>
+          <marquee behavior="" direction="left">  <h5 style="color: white">Ưu đãi siêu lớn trong tháng 8</h5></marquee>
+          <marquee behavior="" direction="left">  <h5 style="color: black">Booking ngay nhận ngàn ưu đãi</h5></marquee>
+        </div>
+      </div>
+
+      <!--Table-->
+      <div class="col-9 right-center" style="border-radius: 20px">
+
+        <table id="products" class="table table-hover table-bordered table-responsive" style="font-size: 13px">
+          <thead>
+          <tr>
+            <th>STT</th>
+            <th>Ngày bắt đầu</th>
+            <th>Ngày kết thúc</th>
+            <th>Tiền Cọc</th>
+            <th>Tên khách</th>
+            <th>Tên dịch vụ</th>
+            <th> Tổng Tiền</th>
+            <th>Danh sách dịch vụ đi kèm</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let contract of contractList,index as i">
+            <td>{{i + 1}}</td>
+            <td>{{contract.startDate}}</td>
+            <td>{{contract.endDate}}</td>
+            <td>{{contract.deposit}}</td>
+            <td>{{contract.customer.name}}</td>
+            <td>{{contract.facility.name}}</td>
+            <td>{{contract.total}}</td>
+            <td>
+              <button [routerLink]="'/contract/create'" type="button" class="btn btn-outline-success"
+                      data-bs-toggle="modal"
+                      :data-bs-target="'#staticBackdrop' ">
+                <img width="25 25" src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="">
+              </button>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop ">
+                Danh sách dịch vụ đi kèm
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                   data-bs-keyboard="false"
+                   tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header btn-success">
+                      <h5 class="modal-title" id="staticBackdropLabel">Danh sách dịch vụ đi kèm</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                      <table class="table table-hover">
+                        <thead class="btn-success">
+                        <tr>
+                          <th>Stt</th>
+                          <th>Name</th>
+                          <th>Gía</th>
+                          <th>Đơn vị tính</th>
+                          <th>Trạng Thái</th>
+                          <th>Số Lượng</th>
+                        </tr>
+                        </thead>
+                        <tr>
+                          <td>1</td>
+                          <td>Karaoke</td>
+                          <td>5000</td>
+                          <td>Giờ</td>
+                          <td>Ok</td>
+                          <td>50</td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,9 +1,9 @@
-<form [formGroup]="productForm" (ngSubmit)="update(id)">
+<form [formGroup]="productForm" (ngSubmit)="update(id)" *ngIf="productForm">
   <legend>Chỉnh Sửa Sản Phẩm</legend>
   <div class="mb-3">
     <label class="form-label">Chọn danh mục</label>
-    <select class="form-control form-control-lg" formControlName="category">
-      <option *ngFor="let category of listCategory " [ngValue]="category">{{category.name}}</option>
+    <select class="form-control form-control-lg" formControlName="category"  [compareWith]="compareFn">
+      <option *ngFor="let category of listCategory "   [ngValue]="category">{{category.name}}</option>
     </select>
   </div>
   <div class="mb-3">

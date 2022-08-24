@@ -1,0 +1,13 @@
+.x {
+  transition-duration: .5s;
+  transition-property: transform;
+  transition-timing-function: ease-out;
+}
+
+.x:hover {
+  transform: translateY(-10px);
+}
+
+body{
+  background-color: #046056;
+}

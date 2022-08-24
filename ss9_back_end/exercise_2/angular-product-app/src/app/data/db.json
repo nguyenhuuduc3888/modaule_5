@@ -9,14 +9,16 @@
       "id": 2
     },
     {
-      "name": "Màn hình Vip k",
+      "name": "Màn hình ",
       "id": 3
     },
     {
-      "name": "CC",
+      "name": "Loa",
       "id": 4
     }
   ],
+
+
   "product": [
     {
       "id": 1,
@@ -30,15 +32,26 @@
       }
     },
     {
-      "name": "Xiaomi",
-      "price": "2500000",
+      "name": "G5",
+      "price": "5000000",
+      "description": "Ok",
+      "img": "https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg",
+      "category": {
+        "name": "Loa",
+        "id": 4
+      },
+      "id": 4
+    },
+    {
+      "name": "LG 32icnh",
+      "price": "5000000",
       "description": "New 100%",
       "img": "https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg",
       "category": {
-        "name": "Điện Thoại",
-        "id": 2
+        "name": "Màn hình ",
+        "id": 3
       },
-      "id": 2
+      "id": 5
     }
   ]
 }

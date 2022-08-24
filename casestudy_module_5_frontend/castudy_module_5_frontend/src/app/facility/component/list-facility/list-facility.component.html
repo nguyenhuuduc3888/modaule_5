@@ -1,0 +1,168 @@
+<div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+<h5>
+  <marquee style="color: white"> Liên hệ booking : 0944333333</marquee>
+
+  <marquee style=" font-weight: bold" direction="left"> KHU NGHỈ DƯỠNG ĐẲNG CẤP THẾ GIỚI, FURAMA ĐÀ NẴNG, NỔI TIẾNG LÀ
+    KHU NGHỈ DƯỠNG ẨM THỰC TẠI VIỆT
+    NAM.
+  </marquee>
+</h5>
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-11">
+      <h1 style="color:  white">Danh Sách Dịch Vụ</h1>
+    </div>
+    <!--nut them-->
+    <div class="col-1">
+      <button class=" btn btn-outline-success" [routerLink]="['/facility/create']">
+        <a style="text-decoration: none">
+          <img width="30 30" src="https://cdn-icons-png.flaticon.com/512/1387/1387940.png"></a>
+      </button>
+    </div>
+  </div>
+
+  <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+  <!-- body-->
+  <div class="col-12 center">
+    <div class="row">
+      <div class="col-12 " style="border-radius: 10px;background-color: #21D192">
+        <div class="container-fluid">
+          <div class="row">
+
+            <div class="col-3 x" *ngFor="let facility of facilityList">
+              <div class="card d-flex flex-column" style="width: 18rem;height: 350px">
+
+                <img [src]="facility.img"
+                     class="card-img-top p-10 flex-grow-1" width="100%" height="300px" alt="img" data-bs-toggle="modal"
+                     data-bs-target="#exampleModalView" style="object-fit: cover">
+
+                <div class="card-body">
+                  <h5 style="font-weight: bold" class="card-text">{{facility.facilityType.name}}</h5>
+                  <p style="color: red">{{facility.cost|currency: "VND"}}</p>
+                  <div class="col-12 center ">
+                    <div class="row">
+
+                      <div class="col-4">
+                        <!--nút edit-->
+                        <button [routerLink]="['/facility/edit',facility.id]" type="button" class="btn ">
+                          <img width="30 30"
+                               src="https://cdn-icons.flaticon.com/png/512/738/premium/738880.png?token=exp=1660556850~hmac=dfc661d32c3036a45ecbf847b1db7453"
+                               alt="">
+                        </button>
+                      </div>
+
+                      <div class="col-4">
+                        <!-- nút xóa-->
+                        <button type="button" class="btn " data-bs-toggle="modal"
+                                data-bs-target="#exampleModalDelete" (click)="openDelete(facility)">
+                          <img width="30 30" src="https://cdn-icons-png.flaticon.com/512/3221/3221897.png">
+                        </button>
+                      </div>
+
+                      <div class="col-4">
+                        <!-- nút xem chi tiết-->
+                        <button type="button" class="btn " data-bs-toggle="modal"
+                                data-bs-target="#exampleModalView">
+                          <img width="30 30" src="https://cdn-icons-png.flaticon.com/512/6592/6592963.png">
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Xóa -->
+<div class="modal fade" id="exampleModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-success">
+        <h5 class="modal-title" id="exampleModalLabel">Xóa Dịch Vụ</h5>
+      </div>
+
+      <!-- Body modal-->
+      <div class="modal-body">
+        Bạn có muốn xóa dịch vụ này không
+        <br>
+        <div class="card mx-auto" style="width: 18rem;">
+          <img [src]="img">
+          <div class="card-body">
+            <h5 class="card-text">{{name}}</h5>
+            <h6 style="color: red">{{cost|currency}}</h6>
+          </div>
+        </div>
+      </div>
+      <!-- có/ không-->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Không
+        </button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="delete(idDelete)">
+          Có
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal xem chi tiết -->
+<div class="modal fade" id="exampleModalView" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-success">
+        <h5 class="modal-title" id="exampleModalLabels">Xem chi tiết</h5>
+      </div>
+
+      <div class="modal-body">
+        <div class="card mx-auto" style="width: 18rem;">
+          <img
+            src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg"
+            class="card-img-top p-10 " width="100%" height="300px" alt="img">
+          <div class="card-body">
+            <h5 class="card-text">Phòng Đẹp Nhất</h5>
+            <p>Diện tích 40m<sup>2</sup></p>
+          </div>
+        </div>
+      </div>
+
+      <table class="table-danger">
+        <thead class="btn-success">
+        <tr>
+          <th>Diện tích</th>
+          <th>Ở tối đa</th>
+          <th>Giá Thuê Dự Kiến</th>
+        </tr>
+        </thead>
+        <tbody class="btn-warning">
+        <tr *ngFor="let faciitys of facilityList">
+          <td>{{faciitys.area}}</td>
+          <td>{{faciitys.maxPeople}}</td>
+          <td>{{faciitys.cost}}</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <!-- có/ không-->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Trở về
+        </button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">
+          Thuê
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

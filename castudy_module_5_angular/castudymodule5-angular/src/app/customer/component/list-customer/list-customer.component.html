@@ -10,14 +10,18 @@
         NAM.
       </marquee>
     </h5>
-    <div class="col-11">
+    <div class="col-6">
       <h1 style="color:  white">Danh Sách Khách Hàng</h1>
     </div>
-    <div class="col-1">
+    <div class="col-3">
       <button class="x btn btn-outline-success" [routerLink]="'/customer/create'">
         <a style="text-decoration: none">
           <img width="30 30" src="https://cdn-icons-png.flaticon.com/512/1387/1387940.png"></a>
       </button>
+    </div>
+    <div class="col-3 d-flex">
+      <input type="search" class="form-control" placeholder="Nhập tên cần tìm" [(ngModel)]="searchName">
+      <button class=" btn btn-outline-success" (click)="search($event.target['value'])"> Tìm</button>
     </div>
   </div>
   <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
@@ -28,7 +32,7 @@
       <!--Table-->
       <div class="col-12 right-center" style="border-radius: 10px;padding-top: 20px">
 
-        <table class="table table-hover table-responsive table-bordered" style="font-size: 13px">
+        <table class="table  table-responsive table-bordered" style="font-size: 15px;color: white;border: navajowhite">
           <thead>
           <tr>
             <th>Stt</th>
@@ -45,7 +49,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let customer of customerList; index as i">
+          <tr *ngFor="let customer of customerList | paginate:{itemsPerPage:4,currentPage:page};index as i ">
             <td>{{i + 1}}</td>
             <td>{{customer.name}}</td>
             <td>{{customer.birthday }}</td>
@@ -74,6 +78,9 @@
           </tr>
           </tbody>
         </table>
+
+        <pagination-controls (pageChange)="page=$event"></pagination-controls>
+
       </div>
     </div>
   </div>

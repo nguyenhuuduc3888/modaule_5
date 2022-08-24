@@ -14,8 +14,8 @@
                 <img [src]="product.img"
                      class="card-img-top p-10 " width="100%" height="300px" alt="img">
                 <div class="card-body">
-                  <h4>{{product.category.name}}</h4>
-                  <h5 style="font-weight: bold" class="card-text">{{product.name}}</h5>
+                  <h3 style="font-weight: bold">{{product.category.name}}</h3>
+                  <h6 style="font-weight: bold" class="card-text">{{product.name}}</h6>
                   <p style="color: red">{{product.price|currency: "VND"}}</p>
                   <p>{{product.description}}</p>
                   <div class="col-12 center ">
