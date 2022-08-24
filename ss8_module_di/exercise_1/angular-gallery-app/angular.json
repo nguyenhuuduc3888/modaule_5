@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-img": {
+    "angular-gallery-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-img",
+            "outputPath": "dist/angular-gallery-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-img:build"
+            "browserTarget": "angular-gallery-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-img:build:production"
+              "browserTarget": "angular-gallery-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-img:build"
+            "browserTarget": "angular-gallery-app:build"
           }
         },
         "test": {
@@ -110,19 +110,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-img:serve"
+            "devServerTarget": "angular-gallery-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-img:serve:production"
+              "devServerTarget": "angular-gallery-app:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "angular-img",
+  "defaultProject": "angular-gallery-app",
   "cli": {
-    "analytics": "096589bd-b582-446a-8b41-b8acc03b7b29"
+    "analytics": "9b01849c-840d-40d3-b90d-baf4bd3eb72d"
   }
 }
