@@ -9,6 +9,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface IContractRepository extends JpaRepository<Contract,Integer> {
+
+
     @Query(value = " select * from contract where day_start like :name ", nativeQuery = true)
     Page<Contract> findAll(Pageable pageable, @Param("name") String name);
 }

@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @CrossOrigin()
@@ -20,15 +19,6 @@ public class CustomerRestController {
     CustomerService customerService;
     @Autowired
     CustomerTypeService customerTypeService;
-
-    @GetMapping("/getAll")
-    public ResponseEntity<List<CustomerType>> getListCustomerType() {
-        List<CustomerType> customerTypeList = customerTypeService.findAll();
-        if (customerTypeList.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<>(customerTypeList, HttpStatus.OK);
-    }
 
     //Hiển thị tất cả
     @GetMapping("")
@@ -63,7 +53,7 @@ public class CustomerRestController {
         if (customer == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        customerService.save(customer);
+        customerService.update(customer);
         return new ResponseEntity<>(customer, HttpStatus.OK);
     }
 
@@ -75,8 +65,18 @@ public class CustomerRestController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         customerService.delete(id);
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
+//List Customer Type
+    @GetMapping("/getAll")
+    public ResponseEntity<List<CustomerType>> getListCustomerType() {
+        List<CustomerType> customerTypeList = customerTypeService.findAll();
+        if (customerTypeList.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(customerTypeList, HttpStatus.OK);
+    }
+
 }
 
 

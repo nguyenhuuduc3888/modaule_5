@@ -67,7 +67,7 @@
               <select class="form-control form-control-lg" formControlName="facilityType"
                       (change)="getType($event.target['value'])">
                 <option value="" disabled>Chọn dịch vụ</option>
-                <option *ngFor="let item of facilityTypeList " [ngValue]="item.id">{{item.name}}</option>
+                <option *ngFor="let item of facilityTypeList " [value]="item.id">{{item.name}}</option>
               </select>
             </div>
             <p style="color: red"
@@ -77,7 +77,7 @@
             </p>
             <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
 
-            <div class="mb-3" id="standardRoom" *ngIf="type==='1: 1'||type==='2: 2' " >
+            <div class="mb-3" id="standardRoom" *ngIf="type==='1'||type==='2' " >
               <input type="text" value="N/A" class="form-control form-control-lg" placeholder="Tiêu chuẩn phòng"
                      formControlName="standardRoom">
             </div>
@@ -88,7 +88,7 @@
             </p>
             <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
 
-            <div class="mb-3" id="description" *ngIf="type==='1: 1'||type==='2: 2'" >
+            <div class="mb-3" id="description" *ngIf="type==='1'||type==='2'" >
               <input type="text" value="N/A" class="form-control form-control-lg" placeholder="Tiện nghi"
                      formControlName="descriptionOtherConvenience">
             </div>
@@ -99,7 +99,7 @@
             </p>
             <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
 
-            <div class="mb-3" id="poolArea" *ngIf="type==='1: 1'" >
+            <div class="mb-3" id="poolArea" *ngIf="type==='1'" >
               <input type="number" value="1" class="form-control form-control-lg" placeholder="Diện tích hồ bơi"
                      formControlName="poolArea">
             </div>
@@ -110,7 +110,7 @@
             </p>
             <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
 
-            <div class="mb-3" id="numberFloor" *ngIf="type==='1: 1'||type==='2: 2'" >
+            <div class="mb-3" id="numberFloor" *ngIf="type==='1'||type==='2'" >
               <input type="number" value="1" class="form-control form-control-lg" placeholder="Số tầng"
                      formControlName="numberOfFloors">
             </div>
@@ -121,7 +121,7 @@
             </p>
             <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
 
-            <div class="mb-3" id="facilityFree" *ngIf="type==='3: 3'" >
+            <div class="mb-3" id="facilityFree" *ngIf="type==='3'" >
               <input type="text" value="N/A" class="form-control form-control-lg" placeholder="Dịch vụ miễn phí"
                      formControlName="facilityFree">
             </div>

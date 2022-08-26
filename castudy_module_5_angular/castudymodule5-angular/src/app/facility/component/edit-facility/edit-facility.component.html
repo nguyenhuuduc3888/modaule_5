@@ -16,7 +16,7 @@
       <!--card right-->
       <div class="col-12 right-center" style="border-radius: 10px">
         <div class="container mb-2 text-white">
-          <form [formGroup]="facilityForm" (ngSubmit)="update(id)" novalidate>
+          <form [formGroup]="facilityForm" (ngSubmit)="update(id)" novalidate *ngIf="facilityForm">
             <div class="mb-3">
               <input type="hidden" class="form-control form-control-lg" placeholder="Id"
                      formControlName="id">
@@ -83,7 +83,7 @@
             <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
             <div class="mb-3">
               <select class="form-control form-control-lg" (change)="getType($event.target['value'])"
-                      formControlName="facilityType">
+                      formControlName="facilityType" [compareWith]="compare">
                 <option *ngFor="let item of facilityTypeList " [ngValue]="item.id">{{item.name}}</option>
               </select>
             </div>

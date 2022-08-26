@@ -13,6 +13,7 @@ import {ToastrService} from 'ngx-toastr';
 })
 export class CreateCustomerComponent implements OnInit {
 
+  // tslint:disable-next-line:max-line-length
   constructor(private toastrService: ToastrService, private customerService: CustomerService, private customerTypeService: CustomerTypeService, private router: Router) {
   }
 

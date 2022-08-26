@@ -13,6 +13,7 @@ import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 export class EditCustomerComponent implements OnInit {
   customerForm: FormGroup;
   id: number;
+  customerTypeList: CustomerType[];
 
   constructor(private activatedRoute: ActivatedRoute, private customerService: CustomerService,
               private customerTypeService: CustomerTypeService, private router: Router) {
@@ -21,8 +22,6 @@ export class EditCustomerComponent implements OnInit {
       this.getCustomer(this.id);
     });
   }
-
-  customerTypeList: CustomerType[];
 
   private getCustomer(id: number) {
     return this.customerService.findById(id).subscribe(customer => {

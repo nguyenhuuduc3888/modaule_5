@@ -1,0 +1,90 @@
+<div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+
+<div class="container-fluid">
+  <div class="col-12 center">
+    <div class="row">
+      <div class="col-3">
+
+      </div>
+      <div class="col-6 right-center" style="border-radius: 10px;background-color: white">
+        <div id="form" class="text-black">
+          <form [formGroup]="patientForm" (ngSubmit)="submit()" novalidate>
+            <div>
+              <label><h1 style="color:  black">Thêm mới bệnh án </h1></label>
+            </div>
+            <input class="form-control form-control-lg" type="hidden" placeholder="Id"
+                   aria-label=".form-control-lg example" formControlName="id">
+            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+            <div>
+              <input class="form-control form-control-lg" type="text" placeholder="MÃ BỆNH ÁN"
+                     aria-label=".form-control-lg example" formControlName="codePatient">
+            </div>
+            <div style="color: red"
+                 *ngIf="!patientForm.controls.codePatient?.valid&&(patientForm.controls.codePatient?.dirty||patientForm.controls.codePatient?.touched)">
+              Không được để trống
+            </div>
+            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+
+            <div>
+              <input class="form-control form-control-lg" type="date" placeholder="Ngày nhập viện"
+                     aria-label=".form-control-lg example" formControlName="dayStart">
+            </div>
+            <div style="color: red"
+                 *ngIf="!patientForm.controls.dayStart?.valid&&(patientForm.controls.dayStart?.dirty||patientForm.controls.dayStart?.touched)">
+
+              Không được để trống
+            </div>
+            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+            <div>
+              <input class="form-control form-control-lg" type="date" placeholder="Ngày ra vện"
+                     aria-label=".form-control-lg example" formControlName="dayEnd">
+            </div>
+
+            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+            <div>
+              <input class="form-control form-control-lg" type="text" placeholder="Lý do"
+                     aria-label=".form-control-lg example" formControlName="reason">
+            </div>
+            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+            <div>
+              <input class="form-control form-control-lg" type="text" placeholder="Phuong phap"
+                     aria-label=".form-control-lg example" formControlName="method">
+            </div>
+            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+            <div>
+              <input class="form-control form-control-lg" type="text" placeholder="Bác sĩ"
+                     aria-label=".form-control-lg example" formControlName="doctor">
+            </div>
+            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+            <div>
+              <input class="form-control form-control-lg" type="text" placeholder="Tên bệnh nhân"
+                     aria-label=".form-control-lg example" formControlName="namePeoplePatient">
+            </div>
+            <div style="color:red"
+                 *ngIf="!patientForm.controls.namePeoplePatient?.valid&&(patientForm.controls.namePeoplePatient?.dirty||patientForm.controls.namePeoplePatient?.touched)">
+              Không được để trống
+            </div>
+            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+            <!--select option-->
+            <div>
+              <select class="form-control form-control-lg" type="text"
+                      aria-label=".form-control-lg example" formControlName="codePeoplePatient">
+                <option [ngValue]="null" disabled>Chọn Mã Bệnh Nhân</option>
+                <option *ngFor="let item of peoplePatientList" [ngValue]="item">{{item.codePeoplePatient}}</option>
+              </select>
+            </div>
+            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+            <!--Nut luu-->
+            <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+            <button type="submit" class=" btn btn-success" [disabled]="!patientForm.valid ">Lưu</button>
+            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+          </form>
+        </div>
+      </div>
+      <div class="col-3">
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>

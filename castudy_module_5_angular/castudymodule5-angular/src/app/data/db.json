@@ -4,11 +4,11 @@
       "id": 1,
       "name": "Nguyễn Hữu Đức",
       "customerType": {
-        "id": 2,
-        "name": "Platinum"
+        "id": 4,
+        "name": "Sliver"
       },
       "birthday": "2022-08-22",
-      "gender": 1,
+      "gender": "1",
       "idCard": "184309497",
       "phoneNumber": "0901234567",
       "email": "nguyenhuuduc@gmail.com",
@@ -41,20 +41,6 @@
       "phoneNumber": "0901234567",
       "email": "nguyenthiutquyen@gmail.com",
       "address": "hà tĩnh"
-    },
-    {
-      "id": 4,
-      "name": "Đức Nguyễn",
-      "customerType": {
-        "id": 3,
-        "name": "Gold"
-      },
-      "birthday": "2022-08-22",
-      "gender": "1",
-      "idCard": "184309497",
-      "phoneNumber": "0910000000",
-      "email": "duc@gmail.com",
-      "address": "duc"
     },
     {
       "id": 5,
@@ -155,6 +141,44 @@
         "facilityFree": "Dọn Phòng",
         "img": "https://didongviet.vn/dchannel/wp-content/uploads/2022/01/cute-didongviet.jpg"
       }
+    },
+    {
+      "id": 4,
+      "startDate": "5544-04-04",
+      "endDate": "4444-04-04",
+      "deposit": "4545",
+      "total": "444",
+      "customer": {
+        "id": 2,
+        "customerType": {
+          "id": 2,
+          "name": "Platinum"
+        },
+        "name": "Nguyễn Hữu Phước",
+        "birthday": "10-04-1994",
+        "gender": 1,
+        "idCard": "184309497",
+        "phoneNumber": "0901234567",
+        "email": "nguyenhuuphuoc@gmail.com",
+        "address": "hà tĩnh"
+      },
+      "facility": {
+        "id": 2,
+        "facilityType": {
+          "id": 1,
+          "name": "Villa"
+        },
+        "name": "View biển",
+        "area": 100,
+        "cost": 15000000,
+        "maxPeople": 8,
+        "standardRoom": "Phòng Đơn,",
+        "descriptionOtherConvenience": "Phòng rộng rãi,có điều hòa",
+        "numberOfFloors": 3,
+        "poolArea": 30,
+        "facilityFree": "Dọn phòng",
+        "img": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg"
+      }
     }
   ],
   "facility": [
@@ -177,14 +201,14 @@
     },
     {
       "id": 2,
-      "facilityType": {
-        "id": 1,
-        "name": "Villa"
-      },
       "name": "View biển",
       "area": 100,
       "cost": 15000000,
       "maxPeople": 8,
+      "facilityType": {
+        "id": 2,
+        "name": "House"
+      },
       "standardRoom": "Phòng Đơn,",
       "descriptionOtherConvenience": "Phòng rộng rãi,có điều hòa",
       "numberOfFloors": 3,
@@ -216,8 +240,42 @@
       "cost": 56546454,
       "maxPeople": 5,
       "facilityType": {
-        "id": 3,
-        "name": "Room"
+        "id": 1,
+        "name": "Villa"
+      },
+      "standardRoom": "Phòng Đơn",
+      "descriptionOtherConvenience": "Phòng Đẹp ",
+      "numberOfFloors": 1,
+      "poolArea": 1,
+      "facilityFree": "Dọn Phòng",
+      "img": "https://didongviet.vn/dchannel/wp-content/uploads/2022/01/cute-didongviet.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Nhà To",
+      "area": 52,
+      "cost": 4313353456,
+      "maxPeople": 5,
+      "facilityType": {
+        "id": 1,
+        "name": "Villa"
+      },
+      "standardRoom": "Phòng Đơn",
+      "descriptionOtherConvenience": "Phòng Đẹp ",
+      "numberOfFloors": 1,
+      "poolArea": 1,
+      "facilityFree": "Dọn Phòng",
+      "img": "https://didongviet.vn/dchannel/wp-content/uploads/2022/01/cute-didongviet.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Duc",
+      "area": 50,
+      "cost": 463464,
+      "maxPeople": 5,
+      "facilityType": {
+        "id": 2,
+        "name": "House"
       },
       "standardRoom": "Phòng Đơn",
       "descriptionOtherConvenience": "Phòng Đẹp ",

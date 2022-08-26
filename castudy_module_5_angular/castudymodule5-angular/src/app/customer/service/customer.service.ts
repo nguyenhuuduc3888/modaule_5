@@ -36,6 +36,6 @@ export class CustomerService {
   }
 
   findAll(nameSearch: string): Observable<Customer[]> {
-    return this.httpClient.get<Customer[]>(`${API_URL_CUSTOMER}?name_like=` + nameSearch );
+    return this.httpClient.get<Customer[]>(`${API_URL_CUSTOMER}?name_like=` + nameSearch);
   }
 }

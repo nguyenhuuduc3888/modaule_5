@@ -28,6 +28,7 @@ export class EditFacilityComponent implements OnInit {
 
   getType(type) {
     this.type = type;
+    console.log(this.type);
   }
 
   private getFacility(id: number) {
@@ -69,5 +70,10 @@ export class EditFacilityComponent implements OnInit {
         this.router.navigate(['/facility/list']);
       });
     });
+  }
+
+  compare(value, option): boolean {
+    return value.id === option.id;
+
   }
 }

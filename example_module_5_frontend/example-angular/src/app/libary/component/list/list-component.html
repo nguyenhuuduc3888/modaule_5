@@ -1,0 +1,101 @@
+<div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+<div class="container-fluid">
+  <div class="row col-3 ">
+    <input type="search" class="form-control" [(ngModel)]="nameSearch" placeholder="Tên Bệnh Nhân">
+    <button class=" btn btn-outline-success" (click)="searchForm()"> Tìm </button>
+  </div>
+  <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
+
+  <div class="row">
+    <div class="col-10">
+      <h3 style="color: black ">Danh Sách Bệnh Án</h3>
+    </div>
+    <!--Nut them-->
+    <div class="col-1">
+      <button type="button" class=" btn btn-outline-success" [routerLink]="'/patient/create'">
+        <a style="text-decoration: none;color: black">
+          <img width="30 30" src="https://cdn-icons-png.flaticon.com/512/1387/1387940.png"></a>
+      </button>
+    </div>
+  </div>
+
+  <div class="col-12 center">
+    <div>
+      <!--Table-->
+      <div class="col-12 right-center" style="border-radius: 10px;padding-top: 20px">
+        <table class="table  table-responsive table-bordered  table-striped"
+               style="font-size: 20px;color: black;border: white; box-shadow: 1px 1px 1px 5px #AAA;border-color: black">
+          <thead style="color: black">
+          <tr>
+            <th>Stt</th>
+            <th>Mã bện án</th>
+            <th>Mã bệnh nhân</th>
+            <th>Tên bệnh nhân</th>
+            <TH>Tên bác sĩ</TH>
+            <th>Ngày nhập viện</th>
+            <th>Ngày ra viện</th>
+            <th>Lý do nhập viện</th>
+            <th>Điều trị</th>
+            <th>Sửa</th>
+            <th>Xóa</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let patient of patientList | paginate:{itemsPerPage:3,currentPage:page};index as i ">
+            <td>{{(i + 1) + 5 * (page - 1)}}</td>
+            <td>{{patient.codePatient}}</td>
+            <td>{{patient.codePeoplePatient.codePeoplePatient}}</td>
+            <td>{{patient.namePeoplePatient}}</td>
+            <td>{{patient.doctor}}</td>
+            <td>{{patient.dayStart|date:'dd/MM/yyyy'}}</td>
+            <td>{{patient.dayEnd|date:'dd/MM/yyyy'}}</td>
+            <td>{{patient.reason}}</td>
+            <td>{{patient.method}}</td>
+            <td>
+              <!--nút edit-->
+              <button type="button" class="btn btn-outline-success">
+                <a style="text-decoration: none;color: black" [routerLink]="['/patient/edit',patient.id]">Sửa</a>
+              </button>
+            </td>
+            <td>
+              <!--nút xóa "-->
+              <button type="button" class="btn btn-outline-success"
+                      data-bs-toggle="modal" data-bs-target="#exampleModal"
+                      (click)="openDelete(patient)" style="color:black;">
+                Xóa
+              </button>
+              <!-- Modal -->
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <pagination-controls (pageChange)="page=$event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Xóa Khách Hàng</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="color: red">
+        <H5>Bạn có muốn xóa bệnh nhân tên :{{nameDelete}} </H5>
+        <br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Không
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="delete(idDelete)">Có</button>
+      </div>
+    </div>
+  </div>
+</div>
+

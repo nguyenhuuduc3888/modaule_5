@@ -15,5 +15,7 @@ public interface ICustomerService {
 
     Customer findById(Integer id);
 
+    void update(Customer customer);
+
     List<Customer> find();
 }
