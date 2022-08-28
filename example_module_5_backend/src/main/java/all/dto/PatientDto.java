@@ -1,37 +1,45 @@
-package all.model;
+package all.dto;
 
-import javax.persistence.*;
+import all.model.PeoplePatient;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
-@Entity
-public class Patient {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
+public class PatientDto implements Validator {
     private int id;
+    @NotBlank(message = "Không được để trống")
     private String codePatient;
-    @ManyToOne
-    @JoinColumn(name = "code_people_id", referencedColumnName = "id")
+    @NotNull(message = "Không được để trống")
     private PeoplePatient codePeoplePatient;
+    @NotBlank(message = "Không được để trống")
     private String namePeoplePatient;
+    @NotBlank(message = "Không được để trống")
     private String dayStart;
+    @NotBlank(message = "Không được để trống")
     private String dayEnd;
+    @NotBlank(message = "Không được để trống")
     private String reason;
+    @NotBlank(message = "Không được để trống")
     private String method;
+    @NotBlank(message = "Không được để trống")
     private String doctor;
 
-
-    public Patient() {
+    public PatientDto() {
     }
 
-    public Patient(int id, String codePatient, String namePeoplePatient, String dayStart, String dayEnd, String reason, String method, String doctor, PeoplePatient codePeoplePatient) {
+    public PatientDto(int id, String codePatient, PeoplePatient codePeoplePatient, String namePeoplePatient, String dayStart, String dayEnd, String reason, String method, String doctor) {
         this.id = id;
         this.codePatient = codePatient;
+        this.codePeoplePatient = codePeoplePatient;
         this.namePeoplePatient = namePeoplePatient;
         this.dayStart = dayStart;
         this.dayEnd = dayEnd;
         this.reason = reason;
         this.method = method;
         this.doctor = doctor;
-        this.codePeoplePatient = codePeoplePatient;
     }
 
     public int getId() {
@@ -48,6 +56,14 @@ public class Patient {
 
     public void setCodePatient(String codePatient) {
         this.codePatient = codePatient;
+    }
+
+    public PeoplePatient getCodePeoplePatient() {
+        return codePeoplePatient;
+    }
+
+    public void setCodePeoplePatient(PeoplePatient codePeoplePatient) {
+        this.codePeoplePatient = codePeoplePatient;
     }
 
     public String getNamePeoplePatient() {
@@ -98,11 +114,13 @@ public class Patient {
         this.doctor = doctor;
     }
 
-    public PeoplePatient getCodePeoplePatient() {
-        return codePeoplePatient;
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
     }
 
-    public void setCodePeoplePatient(PeoplePatient codePeoplePatient) {
-        this.codePeoplePatient = codePeoplePatient;
+    @Override
+    public void validate(Object target, Errors errors) {
+
     }
 }

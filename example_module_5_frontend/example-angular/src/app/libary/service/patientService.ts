@@ -14,8 +14,8 @@ export class PatientService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getAll(): Observable<Patient[]> {
-    return this.httpClient.get<Patient[]>(URL_PATIENT + '/list');
+  getAll(page: number): Observable<Patient[]> {
+    return this.httpClient.get<Patient[]>(URL_PATIENT + '/list?page=' + page);
   }
 
   save(library): Observable<Patient> {
@@ -34,9 +34,9 @@ export class PatientService {
     return this.httpClient.delete<Patient>(`${URL_PATIENT}/delete/${id}`);
   }
 
-
-  search(name: string): Observable<Patient[]> {
-    return this.httpClient.get<Patient[]>(`${URL_PATIENT}/search/${name}`);
+  codePeoplePatientSearch(codePeoplePatient: string, namePeoplePatient: string, doctor: string): Observable<Patient[]> {
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.get<Patient[]>(`${URL_PATIENT}/search?codePeoplePatient=` + codePeoplePatient + '&namePeoplePatient=' + namePeoplePatient + '&doctor=' + doctor);
   }
 }
 

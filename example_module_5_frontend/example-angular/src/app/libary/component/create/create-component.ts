@@ -19,14 +19,18 @@ export class CreateComponent implements OnInit {
 
   patientForm = new FormGroup({
     id: new FormControl(),
-    codePatient: new FormControl(),
-    codePeoplePatient: new FormControl(),
-    namePeoplePatient: new FormControl(),
-    dayStart: new FormControl(),
-    dayEnd: new FormControl(),
-    reason: new FormControl(),
-    method: new FormControl(),
-    doctor: new FormControl(),
+    codePatient: new FormControl('', [Validators.required]),
+    codePeoplePatient: new FormControl('', [Validators.required]),
+    // tslint:disable-next-line:max-line-length
+    namePeoplePatient: new FormControl('', [Validators.required, Validators.pattern('^[A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ]' +
+      '[a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]*' +
+      '(?:[ ][A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ]' +
+      '[a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]*)*$')]),
+    dayStart: new FormControl('', [Validators.required]),
+    dayEnd: new FormControl('', [Validators.required]),
+    reason: new FormControl('', [Validators.required]),
+    method: new FormControl('', [Validators.required]),
+    doctor: new FormControl('', [Validators.required]),
   });
 
   peoplePatientList: PatientPeople [];
@@ -35,8 +39,8 @@ export class CreateComponent implements OnInit {
     const patient = this.patientForm.value;
     this.patientService.save(patient).subscribe(() => {
       this.patientForm.reset();
-      this.toastrService.success('Thêm mới thành công', ' ', {
-        timeOut: 1500, progressBar: false
+      this.toastrService.success('Thêm mới thành công', '--Đã thực hện--', {
+        timeOut: 2000, progressBar: false
       });
       this.router.navigate(['/patient/list']);
     });

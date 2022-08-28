@@ -12,33 +12,44 @@ import {PatientService} from '../../service/patientService';
   styleUrls: ['./list-component.css']
 })
 export class ListComponent implements OnInit {
-  patientForm: FormGroup = new FormGroup(
-    {
-      namePeoplePatient: new FormControl(''),
-    }
-  );
+  searchForm: FormGroup = new FormGroup({
+    namePeoplePatient: new FormControl(''),
+    doctor: new FormControl(''),
+    codePeoplePatient: new FormGroup({
+      codePeoplePatient: new FormControl('')
+    })
+  });
 
   patientList: Patient[] = [];
   patientPeopleList: PatientPeople[] = [];
-  page = 1;
   nameDelete: string;
   idDelete: number;
-  nameSearch: string;
+  totalPages: number;
+  number: number;
 
   // tslint:disable-next-line:max-line-length
   constructor(private patientService: PatientService, private toastrService: ToastrService, private peoplePatientService: PeoplePatientService) {
   }
 
   ngOnInit(): void {
-    this.getAll();
+    this.getAllPatient(0);
   }
 
-  getAll() {
-    this.patientService.getAll().subscribe(patientList => {
-      this.patientList = patientList;
+  getAllPatient(page: number) {
+    // @ts-ignore
+    // tslint:disable-next-line:variable-name
+    this.patientService.getAll(page).subscribe(({content, number: number, totalPages: totalPages}: Patient[]) => {
+      console.log(number);
+      console.log(totalPages);
+      console.log(content);
+// tổng số trang
+      this.totalPages = totalPages;
+// trang hiện tại
+      this.number = number;
+      this.patientList = content;
     });
-    this.peoplePatientService.getAllPeoplePatient().subscribe(peoplePatient => {
-      this.patientPeopleList = peoplePatient;
+    this.peoplePatientService.getAllPeoplePatient().subscribe(codePeoplePatientList => {
+      this.patientPeopleList = codePeoplePatientList;
     });
   }
 
@@ -50,17 +61,38 @@ export class ListComponent implements OnInit {
   delete(idDelete: number) {
     this.patientService.delete(idDelete).subscribe(() => {
       this.ngOnInit();
-      this.toastrService.success('Xóa thành công', ' ', {
-        timeOut: 1500, progressBar: false
+      this.toastrService.success('Xóa thành công', '--Đã thực hiện--', {
+        timeOut: 2000, progressBar: false
       });
     });
   }
 
-  searchForm() {
-    console.log(this.patientForm.value.namePeoplePatient);
-    return this.patientService.search(this.nameSearch).subscribe(listSearch => {
-      console.log(listSearch);
-      this.patientList = listSearch;
+  goPrevious() {
+    let numberPage: number = this.number;
+    if (numberPage > 0) {
+      numberPage--;
+      this.getAllPatient(numberPage);
+    }
+  }
+
+  goNext() {
+    let numberPage: number = this.number;
+    if (numberPage < this.totalPages - 1) {
+      numberPage++;
+      this.getAllPatient(numberPage);
+    }
+  }
+
+  searchForms() {
+    console.log(this.searchForm.value.codePeoplePatient.codePeoplePatient);
+    console.log(this.searchForm.value.namePeoplePatient);
+    console.log(this.searchForm.value.doctor);
+    this.patientService.codePeoplePatientSearch(
+      this.searchForm.value.codePeoplePatient.codePeoplePatient,
+      this.searchForm.value.namePeoplePatient,
+      this.searchForm.value.doctor).subscribe(value => {
+      console.log(value);
+      this.patientList = value;
     });
   }
 }

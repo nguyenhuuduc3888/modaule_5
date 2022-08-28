@@ -33,3 +33,4 @@ public interface ICustomerRepository extends JpaRepository<Customer, Integer> {
     @Query(value = " select * from customer where name like :name ", nativeQuery = true)
     Page<Customer> findAll(Pageable pageable, @Param("name") String name);
 }
+

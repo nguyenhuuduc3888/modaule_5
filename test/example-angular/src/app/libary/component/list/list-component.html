@@ -1,20 +1,20 @@
 <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
 <div class="container-fluid">
-  <!--  <div class="row " [formGroup]="libraryForm">-->
-  <!--    &lt;!&ndash;Tìm Kiếm&ndash;&gt;-->
-  <!--    <div class=" d-flex">-->
-  <!--      &lt;!&ndash; Không được lồng hai [formGroup] phải dùng formGroupName bọc formGroup lồng của form cha chứa nó ở đây là category&ndash;&gt;-->
-  <!--      <div formGroupName="category" class="col-4">-->
-  <!--        <select formControlName="id" class="form-control">-->
-  <!--          <option value="">&#45;&#45;Chọn danh mục&#45;&#45;</option>-->
-  <!--          <option *ngFor="let category of listCategory" value="{{category.id}}">{{category.name}}</option>-->
-  <!--        </select>-->
-  <!--      </div>-->
-  <!--      <input formControlName="author" type="search" class="form-control" placeholder="Tên tác giả">-->
-  <!--      <input formControlName="name" type="search" class="form-control" placeholder="Tên tiểu thuyết">-->
-  <!--      <button class=" btn btn-outline-success" (click)="searchForm()"> Tìm</button>-->
-  <!--    </div>-->
-  <!--  </div>-->
+    <div class="row " [formGroup]="libraryForm">
+      <!--Tìm Kiếm-->
+      <div class=" d-flex">
+        <!-- Không được lồng hai [formGroup] phải dùng formGroupName bọc formGroup lồng của form cha chứa nó ở đây là category-->
+        <div formGroupName="category" class="col-4">
+          <select formControlName="id" class="form-control">
+            <option value="">--Chọn danh mục--</option>
+            <option *ngFor="let category of listCategory" value="{{category.id}}">{{category.name}}</option>
+          </select>
+        </div>
+        <input formControlName="author" type="search" class="form-control" placeholder="Tên tác giả">
+        <input formControlName="name" type="search" class="form-control" placeholder="Tên tiểu thuyết">
+        <button class=" btn btn-outline-success" (click)="searchForm()"> Tìm</button>
+      </div>
+    </div>
 
   <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
 

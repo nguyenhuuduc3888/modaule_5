@@ -1,13 +1,25 @@
 <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
 <div class="container-fluid">
-  <div class="row col-3 ">
-    <input type="search" class="form-control" [(ngModel)]="nameSearch" placeholder="Tên Bệnh Nhân">
-    <button class=" btn btn-outline-success" (click)="searchForm()"> Tìm </button>
+  <!--Tìm kiếm-->
+  <div class="row " [formGroup]="searchForm">
+    <div class=" d-flex">
+      <div formGroupName="codePeoplePatient" class="col-4">
+        <select formControlName="codePeoplePatient" class="form-control">
+          <option value="">--Chọn mã bệnh nhân--</option>
+          <option *ngFor="let patientPeopleList of patientPeopleList"
+                  value="{{patientPeopleList.codePeoplePatient}}">{{patientPeopleList.codePeoplePatient}}</option>
+        </select>
+      </div>
+      <input formControlName="namePeoplePatient" placeholder="Tên bệnh nhân" class="form-control">
+      <input formControlName="doctor" placeholder="Tên bác sĩ" class="form-control">
+      <button class=" btn btn-outline-success" (click)="searchForms()"> Tìm</button>
+    </div>
   </div>
+
   <div class="vc_empty_space" style="height: 15px"><span class="vc_empty_space_inner"></span></div>
 
   <div class="row">
-    <div class="col-10">
+    <div class="col-11">
       <h3 style="color: black ">Danh Sách Bệnh Án</h3>
     </div>
     <!--Nut them-->
@@ -24,7 +36,7 @@
       <!--Table-->
       <div class="col-12 right-center" style="border-radius: 10px;padding-top: 20px">
         <table class="table  table-responsive table-bordered  table-striped"
-               style="font-size: 20px;color: black;border: white; box-shadow: 1px 1px 1px 5px #AAA;border-color: black">
+               style="font-size: 15px;color: black;border: white; box-shadow: 1px 1px 1px 5px #AAA;border-color: black">
           <thead style="color: black">
           <tr>
             <th>Stt</th>
@@ -41,8 +53,8 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let patient of patientList | paginate:{itemsPerPage:3,currentPage:page};index as i ">
-            <td>{{(i + 1) + 5 * (page - 1)}}</td>
+          <tr *ngFor="let patient of patientList, index as i ">
+            <td>{{(i + 1) + 4 * number  }}</td>
             <td>{{patient.codePatient}}</td>
             <td>{{patient.codePeoplePatient.codePeoplePatient}}</td>
             <td>{{patient.namePeoplePatient}}</td>
@@ -69,7 +81,31 @@
           </tr>
           </tbody>
         </table>
-        <pagination-controls (pageChange)="page=$event"></pagination-controls>
+        <!--Phan trang-->
+        <div>
+          <ul class="pagination">
+            <div *ngIf="number == 0">
+              <li class="page-item disabled">
+                <button class="page-link" hidden>Previous</button>
+              </li>
+            </div>
+            <div *ngIf="number != 0">
+              <li class="page-item">
+                <button class="page-link" (click)="goPrevious()">Previous</button>
+              </li>
+            </div>
+            <div *ngIf="number == totalPages - 1">
+              <li class="page-item disabled">
+                <button class="page-link" hidden>Next</button>
+              </li>
+            </div>
+            <div *ngIf="number != totalPages - 1">
+              <li class="page-item">
+                <button class="page-link" (click)="goNext()">Next</button>
+              </li>
+            </div>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

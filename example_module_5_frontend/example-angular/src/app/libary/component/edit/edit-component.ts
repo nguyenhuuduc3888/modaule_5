@@ -63,8 +63,8 @@ export class EditComponent implements OnInit {
     const patient = this.patientForm.value;
     this.patientService.update(id, patient).subscribe(next => {
       console.log(patient);
-      this.toastrService.success('Cập nhật  thành công', ' ', {
-        timeOut: 1500, progressBar: false
+      this.toastrService.success('Cập nhật  thành công', '--Đã thực hiện--', {
+        timeOut: 2000, progressBar: false
       });
       this.router.navigate(['/patient/list']);
     });

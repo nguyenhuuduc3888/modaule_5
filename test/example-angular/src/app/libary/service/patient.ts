@@ -34,8 +34,8 @@ export class Patient {
   }
 
 
-  // search(name: string, id: number, author: string): Observable<PatientPeople[]> {
-  //   return this.httpClient.get<PatientPeople[]>(`${URL_LIBRARY}?name_like=` + name + '&category.id_like=' + id + '&author_like=' + author);
-  // }
+  search(name: string, id: number, author: string): Observable<PatientPeople[]> {
+    return this.httpClient.get<PatientPeople[]>(`${URL_LIBRARY}?name_like=` + name + '&category.id_like=' + id + '&author_like=' + author);
+  }
 }
 
